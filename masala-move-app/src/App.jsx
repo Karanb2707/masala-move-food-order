@@ -44,4 +44,4 @@ const App = () => {
 
 export default App
 
-//Ep 10 will start
+//22 min  

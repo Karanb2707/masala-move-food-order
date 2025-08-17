@@ -16,23 +16,22 @@ const Menu = () => {
     const { resId } = useParams();
 
     const { data } = useFetchApi({ url: MENU_API, resId: resId })
-    const lastIndex = data?.data?.cards.length - 1;
-    console.log('Menu Data', data);
 
     useEffect(() => {
         if (data) {
+            console.log('Data', data);
             const fetchResInfoData = data?.data?.cards[2]?.card?.card?.info;
-            const allCards = data?.data?.cards[lastIndex]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
-            console.log('allCards', allCards);
+
+            const allCards = data?.data?.cards?.find(
+                c => c?.groupedCard?.cardGroupMap?.REGULAR?.cards
+            )?.groupedCard?.cardGroupMap?.REGULAR?.cards;
 
             const filteredMenuData = allCards.filter(
                 card => Array.isArray(card?.card?.card?.itemCards)
             );
 
-            const fetchMenuData = filteredMenuData.slice(0, 5);
-
             setResInfo(fetchResInfoData);
-            setMenuData(fetchMenuData);
+            setMenuData(filteredMenuData);
         }
     }, [data]);
 
