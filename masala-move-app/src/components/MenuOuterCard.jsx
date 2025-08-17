@@ -27,13 +27,17 @@ const MenuOuterCard = ({ menu }) => {
                     {isOpen ? <FaArrowUp /> : <FaArrowDown />}
                 </button>
             </div>
-            {isOpen && (
-                Array.isArray(items)
-                    ? items.map(item => (
-                        <MenuItemCard itemData={item} key={item?.card?.info?.id} />
-                    ))
-                    : <p className="text-gray-500 px-4">No items found</p>
-            )}
+            {
+                isOpen
+                &&
+                (
+                    Array.isArray(items)
+                        ? items.map(item => (
+                            <MenuItemCard itemData={item} key={item?.card?.info?.id} />
+                        ))
+                        : <p className="text-gray-500 px-4">No items found</p>
+                )
+            }
         </div>
 
     )
