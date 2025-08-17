@@ -4,14 +4,17 @@ import RestraurantCard from './RestraurantCard';
 import ShimarUIComp from './ShimarUIComp';
 import { API_URL } from '../utils/constants';
 import useFetchApi from '../hooks/useFetchApi';
+import { withVegLabel } from '../hooks/withVegLabel';
 
 const Body = () => {
     const [restaurants, setRestaurants] = useState([]);
     const [allRestaurants, setAllRestaurants] = useState([]); // store original list for "All"
     const [searching, setSearching] = useState(false);
 
+    // HOC 
+    const VegRestraurantCard = withVegLabel(RestraurantCard);
+
     const { data } = useFetchApi({ url: API_URL });
-    console.log('Restaurants Data', data);
 
     useEffect(() => {
         if (data) {
@@ -19,6 +22,8 @@ const Body = () => {
 
             setRestaurants(fetchRestaurants);
             setAllRestaurants(fetchRestaurants);
+
+            console.log('Restaurants Data', fetchRestaurants);
         }
     }, [data]); // runs whenever API data changes
 
@@ -70,6 +75,10 @@ const Body = () => {
                             </>
                         ) : restaurants?.length > 0 ? (
                             restaurants.map(restaurant => (
+                                restaurant?.info?.veg
+                                ?
+                                <VegRestraurantCard restroData={restaurant} key={restaurant.info.id} />
+                                :
                                 <RestraurantCard restroData={restaurant} key={restaurant.info.id} />
                             ))
                         ) : searching ? (
