@@ -34,6 +34,7 @@ const Menu = () => {
 
             setResInfo(fetchResInfoData);
             setMenuData(filteredMenuData);
+            window.scrollTo(0,0);
         }
     }, [data]);
 
