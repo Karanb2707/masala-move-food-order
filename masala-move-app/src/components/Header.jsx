@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import logo from '../assets/images/logo.png'
 import { IoMdCart } from "react-icons/io";
 import { NavLink } from 'react-router-dom';
@@ -7,8 +7,20 @@ import { TiShoppingCart } from "react-icons/ti";
 import { IoCallSharp, IoLockOpenOutline, IoStatsChartOutline } from "react-icons/io5";
 import { IoPhonePortraitOutline } from "react-icons/io5";
 import { FaUserCircle } from 'react-icons/fa';
+import { UserContext } from '../context/UserContext';
 
 const Header = () => {
+
+  const { userName, setUserName } = useContext(UserContext);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setUserName('Karan');
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, [setUserName])
+
   return (
     <div className='flex justify-evenly items-center p-2 shadow-sm shadow-gray-500'>
       <img src={logo} alt="Logo Image" className='w-[80px] h-[50px] cursor-pointer' />
@@ -50,7 +62,7 @@ const Header = () => {
               </div>
             </NavLink>
           </li>
-          
+
         </ul>
       </nav>
 
@@ -59,9 +71,9 @@ const Header = () => {
 
         <div className='flex gap-3 items-center'>
           <FaUserCircle className='text-3xl text-orange-600 cursor-pointer' />
-          <button className='px-2 py-1 bg-orange-600 text-white ring ring-orange-700 rounded-md text-sm font-semibold cursor-pointer'>
-            Login
-          </button>
+          <h2 className='text-orange-600 font-semibold'>
+            {userName}
+          </h2>
         </div>
       </div>
     </div>
