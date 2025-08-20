@@ -90,7 +90,9 @@ const Menu = () => {
                                         menu={menuCard}
                                         key={index}
                                         showItems={index === showIndex ? true : false}
-                                        setShowIndex={() => setShowIndex(index)}
+                                        setShowIndex={
+                                            () => setShowIndex(showIndex === index ? null : index)
+                                        }
                                     />
                                 ))
                                 : <div className="text-gray-500 text-xl font-semibold">No Menu Found</div>
