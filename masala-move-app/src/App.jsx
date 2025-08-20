@@ -9,6 +9,7 @@ import Menu from './pages/Menu';
 import UserClass from './advanced/classBased/UserClass';
 // import GroceryBody from './advanced/lazyloding/GroceryBody';
 import { lazy, Suspense } from 'react';
+import ScrolltoTop from './components/ScrolltoTop';
 
 const App = () => {
 
@@ -16,6 +17,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
+      <ScrolltoTop/>
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={<Home />} />
