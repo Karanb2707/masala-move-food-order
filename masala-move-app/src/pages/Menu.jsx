@@ -15,6 +15,8 @@ const Menu = () => {
     const [menuData, setMenuData] = useState([]);
     const { resId } = useParams();
 
+    const [showIndex, setShowIndex] = useState(null);
+
     const { data } = useFetchApi({ url: MENU_API, resId: resId })
 
     useEffect(() => {
@@ -83,7 +85,12 @@ const Menu = () => {
                         <div className="flex flex-col items-center w-full max-w-4xl mt-6">
                             {menuData.length > 0
                                 ? menuData.map((menuCard, index) => (
-                                    <MenuOuterCard menu={menuCard} key={index} />
+                                    <MenuOuterCard
+                                        menu={menuCard}
+                                        key={index}
+                                        showItems={index === showIndex ? true : false}
+                                        setShowIndex={() => setShowIndex(index)}
+                                    />
                                 ))
                                 : <div className="text-gray-500 text-xl font-semibold">No Menu Found</div>
                             }

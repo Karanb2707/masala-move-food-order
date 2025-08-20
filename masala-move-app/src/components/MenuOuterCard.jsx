@@ -1,17 +1,17 @@
-import React, { useState } from 'react'
+// import React, { useState } from 'react'
 import MenuItemCard from './MenuItemCard';
 import { FaArrowUp } from "react-icons/fa";
 import { FaArrowDown } from "react-icons/fa";
 
-const MenuOuterCard = ({ menu }) => {
+const MenuOuterCard = ({ menu, showItems, setShowIndex }) => {
 
-    const [isOpen, setIsOpen] = useState(true);
+    // const [isOpen, setIsOpen] = useState(false);
 
     const title = menu?.card?.card?.title;
     const items = menu?.card?.card?.itemCards;
 
     const toggleAccordion = () => {
-        setIsOpen(prev => !prev);
+        setShowIndex();
     }
 
     return (
@@ -24,11 +24,11 @@ const MenuOuterCard = ({ menu }) => {
                     className="px-4 py-2 text-gray-600 hover:text-black transition"
                     onClick={toggleAccordion}
                 >
-                    {isOpen ? <FaArrowUp /> : <FaArrowDown />}
+                    {showItems ? <FaArrowUp /> : <FaArrowDown />}
                 </button>
             </div>
             {
-                isOpen
+                showItems
                 &&
                 (
                     Array.isArray(items)
