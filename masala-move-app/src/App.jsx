@@ -46,4 +46,4 @@ const App = () => {
 
 export default App
 
-// 15 min
+// 30 min
