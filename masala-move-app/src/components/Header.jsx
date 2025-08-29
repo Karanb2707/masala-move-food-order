@@ -67,7 +67,12 @@ const Header = () => {
       </nav>
 
       <div className='flex gap-10'>
-        <IoMdCart className='text-3xl text-orange-600 cursor-pointer' />
+        <div className='relative inline-block'>
+          <IoMdCart className='text-3xl text-orange-600 cursor-pointer' />
+          <span className='absolute -top-2 -right-2 flex items-center justify-center h-4 w-4 text-xs bg-orange-600 text-white font-semibold text-center py-0.5 rounded-full'>
+            0
+          </span>
+        </div>
 
         <div className='flex gap-3 items-center'>
           <FaUserCircle className='text-3xl text-orange-600 cursor-pointer' />
