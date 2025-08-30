@@ -23,8 +23,6 @@ const Header = () => {
   }, [setUserName]);
 
   const cartItems = useSelector((state) => state.cart.items);
-  console.log('Cart Items', cartItems)
-
   return (
     <div className='flex justify-evenly items-center p-2 shadow-sm shadow-gray-500'>
       <img src={logo} alt="Logo Image" className='w-[80px] h-[50px] cursor-pointer' />

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { IoMdStar } from "react-icons/io";
 import { CDN_URL } from '../utils/constants.js';
-import { useDispatch } from 'react-redux';
-import { addItem } from '../redux/slices/cartSlice.js';
+import { useDispatch, useSelector } from 'react-redux';
+import { addItem, removeItem } from '../redux/slices/cartSlice.js';
 
 const MenuItemCard = ({ itemData }) => {
     const info = itemData?.card?.info;
-    const { name, description, imageId, ratings, defaultPrice, price } = info;
+    const { id, name, description, imageId, ratings, defaultPrice, price } = info;
 
     const finalPrice = defaultPrice ?? price ?? 0;
     const rating = ratings?.aggregatedRating?.rating ?? null;
@@ -21,9 +21,16 @@ const MenuItemCard = ({ itemData }) => {
         ? description
         : `${description.substring(0, 200)}...`;
 
+    const cartItems = useSelector((state) => state.cart.items);
+    const isInCart = cartItems.some(item => item.id === id);
+
     const dispatch = useDispatch();
-    const handleAddItem = () => {
+    
+    const handleAddItem = (info) => {
         dispatch(addItem(info));
+    }
+    const handleRemoveItem = (id) => {
+        dispatch(removeItem(id));
     }
 
     return (
@@ -62,12 +69,23 @@ const MenuItemCard = ({ itemData }) => {
                         className="h-[160px] w-full md:w-[220px] object-cover rounded-md shadow-sm border"
                     />
                 )}
-                <button 
-                    className="w-full h-9 bg-green-600 font-semibold text-white rounded-lg hover:bg-green-700 active:scale-95 transition"
-                    onClick={handleAddItem}
-                >
-                    Add
-                </button>
+                {
+                    isInCart
+                        ?
+                        <button
+                            className="w-full h-9 bg-red-600 font-semibold text-white rounded-lg hover:bg-red-700 active:scale-95 transition"
+                            onClick={() => handleRemoveItem(id)}
+                        >
+                            Remove
+                        </button>
+                        :
+                        <button
+                            className="w-full h-9 bg-green-600 font-semibold text-white rounded-lg hover:bg-green-700 active:scale-95 transition"
+                            onClick={() => handleAddItem(info)}
+                        >
+                            Add
+                        </button>
+                }
             </div>
         </div>
 
