@@ -46,4 +46,4 @@ const App = () => {
 
 export default App
 
-// 1hr - cartSlice
+// 1:26 hr - MenuItemCard

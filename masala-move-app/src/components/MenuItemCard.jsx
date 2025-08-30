@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { IoMdStar } from "react-icons/io";
 import { CDN_URL } from '../utils/constants.js';
+import { useDispatch } from 'react-redux';
+import { addItem } from '../redux/slices/cartSlice.js';
 
 const MenuItemCard = ({ itemData }) => {
     const info = itemData?.card?.info;
@@ -18,6 +20,11 @@ const MenuItemCard = ({ itemData }) => {
     const displayedDescription = showFullDesc || !shouldTruncate
         ? description
         : `${description.substring(0, 200)}...`;
+
+    const dispatch = useDispatch();
+    const handleAddItem = () => {
+        dispatch(addItem(info));
+    }
 
     return (
         <div className="flex flex-col md:flex-row justify-between gap-4 m-4 p-4 rounded-lg bg-white border border-gray-200 shadow-sm hover:shadow-lg hover:scale-[1.01] transition-transform duration-300">
@@ -55,7 +62,10 @@ const MenuItemCard = ({ itemData }) => {
                         className="h-[160px] w-full md:w-[220px] object-cover rounded-md shadow-sm border"
                     />
                 )}
-                <button className="w-full h-9 bg-green-600 font-semibold text-white rounded-lg hover:bg-green-700 active:scale-95 transition">
+                <button 
+                    className="w-full h-9 bg-green-600 font-semibold text-white rounded-lg hover:bg-green-700 active:scale-95 transition"
+                    onClick={handleAddItem}
+                >
                     Add
                 </button>
             </div>

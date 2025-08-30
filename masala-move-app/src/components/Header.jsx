@@ -8,6 +8,7 @@ import { IoCallSharp, IoLockOpenOutline, IoStatsChartOutline } from "react-icons
 import { IoPhonePortraitOutline } from "react-icons/io5";
 import { FaUserCircle } from 'react-icons/fa';
 import { UserContext } from '../context/UserContext';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
 
@@ -19,7 +20,9 @@ const Header = () => {
     }, 2000);
 
     return () => clearTimeout(timer);
-  }, [setUserName])
+  }, [setUserName]);
+
+  const cartItems = useSelector((state) => state.cart.items);
 
   return (
     <div className='flex justify-evenly items-center p-2 shadow-sm shadow-gray-500'>
@@ -68,9 +71,9 @@ const Header = () => {
 
       <div className='flex gap-10'>
         <div className='relative inline-block'>
-          <IoMdCart className='text-3xl text-orange-600 cursor-pointer' />
-          <span className='absolute -top-2 -right-2 flex items-center justify-center h-4 w-4 text-xs bg-orange-600 text-white font-semibold text-center py-0.5 rounded-full'>
-            0
+          <IoMdCart className='text-[34px] text-orange-600 cursor-pointer' />
+          <span className='absolute -top-2 -right-2 flex items-center justify-center h-5 w-5 text-xs bg-orange-600 text-white font-semibold text-center py-0.5 rounded-full'>
+            { cartItems.length }
           </span>
         </div>
 
