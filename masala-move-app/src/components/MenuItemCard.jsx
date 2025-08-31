@@ -3,6 +3,8 @@ import { IoMdStar } from "react-icons/io";
 import { CDN_URL } from '../utils/constants.js';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItem, removeItem } from '../redux/slices/cartSlice.js';
+import { IoMdAdd } from "react-icons/io";
+import { HiMinusSm } from "react-icons/hi";
 
 const MenuItemCard = ({ itemData }) => {
     const info = itemData?.card?.info;
@@ -14,7 +16,7 @@ const MenuItemCard = ({ itemData }) => {
     const rating = ratings?.aggregatedRating?.rating ?? null;
     const imgUrl = CDN_URL + imageId;
 
-    const itemInfo = {id, name, imgUrl, shownPrice};
+    const itemInfo = { id, name, imgUrl, shownPrice };
 
     const [showFullDesc, setShowFullDesc] = useState(false);
 
@@ -26,12 +28,15 @@ const MenuItemCard = ({ itemData }) => {
         : `${description.substring(0, 200)}...`;
 
     const cartItems = useSelector((state) => state.cart.items);
-    console.log('Cart Data', cartItems);
+    // console.log('Cart Data', cartItems);
 
     const isInCart = cartItems.some(item => item.id === id);
 
+    const existingItem = cartItems.find(item => item.id === id);
+    const itemCount = existingItem ? existingItem.quantity : 0;
+
     const dispatch = useDispatch();
-    
+
     const handleAddItem = (itemInfo) => {
         dispatch(addItem(itemInfo));
     }
@@ -78,15 +83,22 @@ const MenuItemCard = ({ itemData }) => {
                 {
                     isInCart
                         ?
-                        <button
-                            className="w-full h-9 bg-red-600 font-semibold text-white rounded-lg hover:bg-red-700 active:scale-95 transition"
-                            onClick={() => handleRemoveItem(id)}
-                        >
-                            Remove
-                        </button>
+                        <div className='w-[160px] h-10 flex items-center justify-between gap-2 ring-1 ring-gray-300 rounded-lg'>
+                            <IoMdAdd
+                                className='text-2xl cursor-pointer text-green-600 ml-2'
+                                onClick={() => handleAddItem(itemInfo)}
+                            />
+                            <p className='text-xl text-orange-600 font-semibold'>
+                                {itemCount}
+                            </p>
+                            <HiMinusSm
+                                className='text-[26px] cursor-pointer text-red-600 mr-2'
+                                onClick={() => handleRemoveItem(id)}
+                            />
+                        </div>
                         :
                         <button
-                            className="w-full h-9 bg-green-600 font-semibold text-white rounded-lg hover:bg-green-700 active:scale-95 transition"
+                            className="w-[160px] h-10 font-semibold text-green-600 rounded-lg ring-1 ring-gray-300 active:scale-95 transition"
                             onClick={() => handleAddItem(itemInfo)}
                         >
                             Add
