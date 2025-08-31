@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import logo from '../assets/images/logo.png'
 import { IoMdCart } from "react-icons/io";
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { IoIosHome } from "react-icons/io";
 import { TiShoppingCart } from "react-icons/ti";
 import { IoCallSharp, IoLockOpenOutline, IoStatsChartOutline } from "react-icons/io5";
@@ -24,6 +24,11 @@ const Header = () => {
 
   const cartItems = useSelector((state) => state.cart.items);
   const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
+  const navigate = useNavigate();
+  const cartHandleClick = () => {
+    navigate('cart')
+  }
 
   return (
     <div className='fixed top-0 left-0 w-full z-50 bg-white flex justify-evenly items-center p-2 shadow-sm shadow-gray-500'>
@@ -72,7 +77,10 @@ const Header = () => {
 
       <div className='flex gap-10'>
         <div className='relative inline-block'>
-          <IoMdCart className='text-[34px] text-orange-600 cursor-pointer' />
+          <IoMdCart 
+            className='text-[34px] text-orange-600 cursor-pointer'
+            onClick={cartHandleClick}
+          />
           <span className='absolute -top-2 -right-2 flex items-center justify-center h-5 w-5 text-xs bg-orange-600 text-white font-semibold text-center py-0.5 rounded-full'>
             { totalQuantity }
           </span>
