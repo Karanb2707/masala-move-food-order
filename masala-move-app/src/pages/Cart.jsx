@@ -21,7 +21,7 @@ const Cart = () => {
           </div>
 
           {/* Right side */}
-          <div className='w-[35%] flex flex-col ring ring-slate-300 shadow-xl gap-4 p-3 rounded-md'>
+          <div className='w-[40%] flex flex-col ring ring-slate-300 shadow-xl gap-4 p-3 rounded-md'>
             <h1 className='text-2xl font-semibold'>
               Summary
             </h1>
