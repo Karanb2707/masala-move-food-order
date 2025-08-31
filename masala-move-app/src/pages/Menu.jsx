@@ -14,8 +14,7 @@ const Menu = () => {
     const [resInfo, setResInfo] = useState(null);
     const [menuData, setMenuData] = useState([]);
     const { resId } = useParams();
-
-    const [showIndex, setShowIndex] = useState(null);
+    const [showIndex, setShowIndex] = useState(0);
 
     const { data } = useFetchApi({ url: MENU_API, resId: resId })
 

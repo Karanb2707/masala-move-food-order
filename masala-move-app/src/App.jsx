@@ -10,6 +10,7 @@ import UserClass from './advanced/classBased/UserClass';
 // import GroceryBody from './advanced/lazyloding/GroceryBody';
 import { lazy, Suspense } from 'react';
 import ScrolltoTop from './components/ScrolltoTop';
+import Cart from './pages/Cart';
 
 const App = () => {
 
@@ -17,13 +18,14 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <ScrolltoTop/>
+      <ScrolltoTop />
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={<Home />} />
           <Route path='/about' element={<About />} />
           <Route path='/order' element={<Order />} />
           <Route path='/contact' element={<Contact />} />
+          <Route path='/cart' element={<Cart />} />
           <Route path='/restaurant/:resId' element={<Menu />} />
 
           {/* Lazy Loading */}
@@ -45,5 +47,3 @@ const App = () => {
 }
 
 export default App
-
-// 1:35 hr
