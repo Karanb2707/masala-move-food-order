@@ -23,6 +23,8 @@ const Header = () => {
   }, [setUserName]);
 
   const cartItems = useSelector((state) => state.cart.items);
+  const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
   return (
     <div className='flex justify-evenly items-center p-2 shadow-sm shadow-gray-500'>
       <img src={logo} alt="Logo Image" className='w-[80px] h-[50px] cursor-pointer' />
@@ -72,7 +74,7 @@ const Header = () => {
         <div className='relative inline-block'>
           <IoMdCart className='text-[34px] text-orange-600 cursor-pointer' />
           <span className='absolute -top-2 -right-2 flex items-center justify-center h-5 w-5 text-xs bg-orange-600 text-white font-semibold text-center py-0.5 rounded-full'>
-            { cartItems.length }
+            { totalQuantity }
           </span>
         </div>
 
