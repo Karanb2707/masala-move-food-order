@@ -18,13 +18,6 @@ const Cart = () => {
             <CartItemCard/>
             <CartItemCard/>
             <CartItemCard/>
-            <CartItemCard/>
-            <CartItemCard/>
-            <CartItemCard/>
-            <CartItemCard/>
-            <CartItemCard/>
-            <CartItemCard/>
-            <CartItemCard/>
           </div>
 
           {/* Right side */}
