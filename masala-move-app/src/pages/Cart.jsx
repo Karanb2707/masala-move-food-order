@@ -1,4 +1,5 @@
 import React from 'react'
+import CartItemCard from '../components/CartItemCard'
 
 const Cart = () => {
 
@@ -9,15 +10,25 @@ const Cart = () => {
       </h1>
 
       <div className='w-[80%] mt-8 ring ring-slate-200 mx-auto p-3 rounded-md'>
-        <div className='flex items-center justify-between gap-2 my-4'>
+        <div className='flex items-start justify-between gap-4 my-4'>
 
           {/* Left side */}
-          <div>
-            
+          <div className='w-full flex flex-col gap-4'>
+            <CartItemCard/>
+            <CartItemCard/>
+            <CartItemCard/>
+            <CartItemCard/>
+            <CartItemCard/>
+            <CartItemCard/>
+            <CartItemCard/>
+            <CartItemCard/>
+            <CartItemCard/>
+            <CartItemCard/>
+            <CartItemCard/>
           </div>
 
           {/* Right side */}
-          <div className='w-[24%] flex flex-col ring ring-slate-300 shadow-xl gap-4 p-3 rounded-md'>
+          <div className='w-[35%] flex flex-col ring ring-slate-300 shadow-xl gap-4 p-3 rounded-md'>
             <h1 className='text-2xl font-semibold'>
               Summary
             </h1>

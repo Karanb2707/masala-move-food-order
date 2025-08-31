@@ -3,8 +3,8 @@ import { IoMdStar } from "react-icons/io";
 import { CDN_URL } from '../utils/constants.js';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItem, removeItem } from '../redux/slices/cartSlice.js';
-import { IoMdAdd } from "react-icons/io";
-import { HiMinusSm } from "react-icons/hi";
+    import { IoMdAdd } from "react-icons/io";
+    import { HiMinusSm } from "react-icons/hi";
 
 const MenuItemCard = ({ itemData }) => {
     const info = itemData?.card?.info;
@@ -92,7 +92,7 @@ const MenuItemCard = ({ itemData }) => {
                                 {itemCount}
                             </p>
                             <HiMinusSm
-                                className='text-[26px] cursor-pointer text-red-600 mr-2'
+                                className='text-2xl cursor-pointer text-red-600 mr-2'
                                 onClick={() => handleRemoveItem(id)}
                             />
                         </div>
