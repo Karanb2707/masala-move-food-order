@@ -26,7 +26,7 @@ const Header = () => {
   const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
-    <div className='flex justify-evenly items-center p-2 shadow-sm shadow-gray-500'>
+    <div className='fixed top-0 left-0 w-full z-50 bg-white flex justify-evenly items-center p-2 shadow-sm shadow-gray-500'>
       <img src={logo} alt="Logo Image" className='w-[80px] h-[50px] cursor-pointer' />
       <nav>
         <ul className='flex gap-8 font-semibold'>
