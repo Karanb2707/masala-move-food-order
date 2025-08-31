@@ -76,7 +76,7 @@ const Header = () => {
           </span>
         </div>
 
-        <div className='flex gap-3 items-center'>
+        <div className='flex gap-2 items-center'>
           <FaUserCircle className='text-3xl text-orange-600 cursor-pointer' />
           <h2 className='text-orange-600 font-semibold'>
             {userName}
