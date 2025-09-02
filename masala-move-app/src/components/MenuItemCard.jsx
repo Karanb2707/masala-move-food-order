@@ -92,7 +92,7 @@ const MenuItemCard = ({ itemData }) => {
                                 {itemCount}
                             </p>
                             <HiMinusSm
-                                className='text-2xl cursor-pointer text-red-600 mr-2'
+                                className='text-2xl  cursor-pointer text-red-600 mr-2'
                                 onClick={() => handleRemoveItem(id)}
                             />
                         </div>

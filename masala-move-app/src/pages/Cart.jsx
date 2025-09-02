@@ -1,7 +1,17 @@
 import React from 'react'
 import CartItemCard from '../components/CartItemCard'
+import { useSelector } from 'react-redux'
+import emptyCart from '../assets/images/empty_cart.png';
 
 const Cart = () => {
+
+  const cartItems = useSelector((state) => state.cart.items);
+  console.log('cartItems', cartItems);
+
+  // Calculation part
+  const subTotal = cartItems.reduce((sum, item) => sum + parseFloat(item.shownPrice) * item.quantity, 0);
+  const gst = (subTotal * 0.18).toFixed(2);
+  const total = (subTotal + parseFloat(gst)).toFixed(2);
 
   return (
     <div className='p-4'>
@@ -9,35 +19,50 @@ const Cart = () => {
         Your Basket
       </h1>
 
-      <div className='w-[80%] mt-8 ring ring-slate-200 mx-auto p-3 rounded-md'>
-        <div className='flex items-start justify-between gap-4 my-4'>
+      {
+        cartItems.length > 0
+          ?
+          <div className='w-[80%] mt-8 ring ring-slate-200 mx-auto p-3 rounded-md'>
+            <div className='flex items-start justify-between gap-4 my-4'>
 
-          {/* Left side */}
-          <div className='w-full flex flex-col gap-4'>
-            <CartItemCard/>
-            <CartItemCard/>
-            <CartItemCard/>
-            <CartItemCard/>
-          </div>
+              {/* Left side */}
+              <div className='w-full flex flex-col gap-4'>
+                {
+                  cartItems.map(cartItem => (
+                    <CartItemCard cartItem={cartItem} key={cartItem.id} />
+                  ))
 
-          {/* Right side */}
-          <div className='w-[40%] flex flex-col ring ring-slate-300 shadow-xl gap-4 p-3 rounded-md'>
-            <h1 className='text-2xl font-semibold'>
-              Summary
-            </h1>
-            <div className='ring ring-blue-200 p-2 rounded-md flex flex-col gap-1 font-semibold'>
-              <p>Sub-total - 100</p>
-              <p>Shipping - 20</p>
+                }
+              </div>
+
+              {/* Right side */}
+              <div className='w-[40%] flex flex-col ring ring-slate-300 shadow-xl gap-4 p-3 rounded-md'>
+                <h1 className='text-2xl font-semibold'>
+                  Summary
+                </h1>
+                <div className='ring ring-blue-200 p-2 rounded-md flex flex-col gap-1 font-semibold'>
+                  <p>Sub-total - {subTotal}</p>
+                  <p>Shipping - {subTotal > 0 ? 100 : 0}</p>
+                  <p>GST - {gst}</p>
+                </div>
+                <h2 className='ring ring-blue-200 p-2 font-semibold rounded-md'>
+                  Total - {total}
+                </h2>
+                <button className='bg-black text-white p-2 rounded-md cursor-pointer'>
+                  Check Out
+                </button>
+              </div>
             </div>
-            <h2 className='ring ring-blue-200 p-2 font-semibold rounded-md'>
-              Total - 120
-            </h2>
-            <button className='bg-black text-white p-2 rounded-md cursor-pointer'>
-              Check Out
-            </button>
           </div>
-        </div>
-      </div>
+          :
+          <div className='flex flex-col mt-10 items-center'>
+            <img src={emptyCart} alt="empty cart" className='h-[260px] w-[240px]' />
+            <h1 className='text-xl font-semibold'>
+              No Item in Cart!!
+            </h1>
+          </div>
+      }
+
     </div>
   )
 }
