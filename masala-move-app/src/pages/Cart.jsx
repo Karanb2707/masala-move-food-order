@@ -22,8 +22,8 @@ const Cart = () => {
       {
         cartItems.length > 0
           ?
-          <div className='w-[80%] mt-8 ring ring-slate-200 mx-auto p-3 rounded-md'>
-            <div className='flex items-start justify-between gap-4 my-4'>
+          <div className='w-full md:w-[80%] mt-8 ring ring-slate-200 mx-auto p-3 rounded-md'>
+            <div className='flex flex-col lg:flex-row items-start justify-between gap-4 my-4'>
 
               {/* Left side */}
               <div className='w-full flex flex-col gap-4'>
@@ -36,7 +36,7 @@ const Cart = () => {
               </div>
 
               {/* Right side */}
-              <div className='w-[40%] flex flex-col ring ring-slate-300 shadow-xl gap-4 p-3 rounded-md'>
+              <div className='w-full lg:w-[40%] flex flex-col ring ring-slate-300 shadow-xl gap-4 p-3 rounded-md'>
                 <h1 className='text-2xl font-semibold'>
                   Summary
                 </h1>
@@ -56,8 +56,8 @@ const Cart = () => {
           </div>
           :
           <div className='flex flex-col mt-10 items-center'>
-            <img src={emptyCart} alt="empty cart" className='h-[260px] w-[240px]' />
-            <h1 className='text-xl font-semibold'>
+            <img src={emptyCart} alt="empty cart" className='h-[200px] w-[180px] sm:h-[260px] sm:w-[240px]' />
+            <h1 className='text-xl font-semibold mt-2'>
               No Item in Cart!!
             </h1>
           </div>
