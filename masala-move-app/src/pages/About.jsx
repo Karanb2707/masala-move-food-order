@@ -3,12 +3,12 @@ import logo from '../assets/images/logo.png'
 
 const About = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-orange-50 p-6">
+    <div className="flex flex-col items-center min-h-screen bg-orange-50 gap-2">
       {/* Logo */}
       <img
         src={logo}
         alt="Masala Move Logo"
-        className="w-32 h-20 mb-6 drop-shadow-lg"
+        className="w-32 h-20 mb-6 drop-shadow-lg mt-20"
       />
 
       {/* Title */}

@@ -57,7 +57,7 @@ const Cart = () => {
           :
           <div className='flex flex-col mt-10 items-center'>
             <img src={emptyCart} alt="empty cart" className='h-[200px] w-[180px] sm:h-[260px] sm:w-[240px]' />
-            <h1 className='text-xl font-semibold mt-2'>
+            <h1 className='text-2xl font-semibold'>
               No Item in Cart!!
             </h1>
           </div>
