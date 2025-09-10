@@ -1,17 +1,17 @@
 import React from 'react'
 import logo from '../assets/images/logo.png'
 
-const OrderItemCard = () => {
+const OrderItemCard = ({ order }) => {
   return (
     <div className='flex flex-col md:flex-row justify-between gap-2 p-2 m-2 border border-orange-900 rounded-lg'>
 
       <div className='flex gap-2'>
         <img src={logo} alt="food image" className='w-[120px] border border-orange-300 rounded-lg' />
         <div className='flex flex-col p-2 border border-orange-300 rounded-lg text-[14px] font-semibold'>
-          <h1>Name</h1>
-          <p>Price</p>
-          <p>Quantity</p>
-          <p>Toatl Price</p>
+          <h1>Name- {order.name}</h1>
+          <p>Price- {order.price}</p>
+          <p>Quantity- {order.quantity}</p>
+          <p>Toatl Price- {order.totalprice}</p>
         </div>
       </div>
 
@@ -23,7 +23,7 @@ const OrderItemCard = () => {
           Cancel Order
         </button>
       </div>
-      
+
     </div>
   )
 }

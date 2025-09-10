@@ -7,6 +7,9 @@ const Order = () => {
   const address = useSelector((state) => state.address);
   console.log('address', address);
 
+  const orderDetails = useSelector((state) => state.order);
+  console.log('order data', orderDetails);
+
   return (
     <div className='flex flex-col items-center'>
       <div className='w-full md:w-[60%] flex flex-col mt-8 gap-4 px-6'>
@@ -16,20 +19,18 @@ const Order = () => {
           Your Orders
         </h1>
 
-        {/* Address - Order Details */}
-        <div className='flex flex-col mt-2 border p-3 gap-2 rounded-md'>
+        {
+          Object.keys(orderDetails).length > 0
+            ?
+            <div className='flex flex-col mt-2 border p-3 gap-2 rounded-md'>
 
-          {/* Address Details */}
-          <div>
-            <div className="flex items-center gap-2">
-              <FaLocationDot className="text-xl text-orange-600" />
-              <h1 className='text-[18px] font-semibold'>
-                Address Details
-              </h1>
-            </div>
-            {
-              Object.keys(address).length > 0
-                ?
+              <div>
+                <div className="flex items-center gap-2">
+                  <FaLocationDot className="text-xl text-orange-600" />
+                  <h1 className='text-[18px] font-semibold'>
+                    Address Details
+                  </h1>
+                </div>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-4 gap-2 text-[14px] font-semibold'>
                   <p>Street - {address.street}</p>
                   <p>Apartment - {address.apartment}</p>
@@ -38,34 +39,33 @@ const Order = () => {
                   <p>City - {address.city}</p>
                   <p>State - {address.state}</p>
                 </div>
-                :
-                <div>
-                  <h1 className="text-[14px] font-semibold p-2 ml-4">
-                    No Address Details Found!
+              </div>
+
+              <div>
+                <div className="flex items-center gap-2">
+                  <FaLocationDot className="text-xl text-orange-600" />
+                  <h1 className='text-[18px] font-semibold'>
+                    Order Details
                   </h1>
                 </div>
-            }
-          </div>
 
-          {/* Order Details */}
-          <div>
-            <div className="flex items-center gap-2">
-              <FaLocationDot className="text-xl text-orange-600" />
-              <h1 className='text-[18px] font-semibold'>
-                Order Details
+                <div className="flex flex-col">
+                  {
+                    orderDetails.orders.map(order => (
+                      <OrderItemCard order={order} key={order.order.id} />
+                    ))
+                  }
+                </div>
+              </div>
+
+            </div>
+            :
+            <div className="text-center mt-10 text-xl font-semibold">
+              <h1>
+                No Orders Placed Yet!!
               </h1>
             </div>
-
-            <OrderItemCard />
-          </div>
-
-
-        </div>
-
-
-
-        {/* Order cards */}
-
+        }
 
       </div>
     </div>
