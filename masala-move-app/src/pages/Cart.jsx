@@ -1,21 +1,31 @@
 import React from 'react'
 import CartItemCard from '../components/CartItemCard'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import emptyCart from '../assets/images/empty_cart.png';
-import { useNavigate } from 'react-router-dom';
 import AddressCard from '../components/AddressCard';
+import { addOrders } from '../redux/slices/orderSlice';
+import { clearCart } from '../redux/slices/cartSlice';
 
 const Cart = () => {
 
   const cartItems = useSelector((state) => state.cart.items);
   console.log('cartItems', cartItems);
 
-  const navigate = useNavigate();
-
   // Calculation part
   const subTotal = cartItems.reduce((sum, item) => sum + parseFloat(item.shownPrice) * item.quantity, 0);
   const gst = (subTotal * 0.18).toFixed(2);
   const total = (subTotal + parseFloat(gst)).toFixed(2);
+
+  const orderData = { orders: cartItems, subTotal: subTotal, gst: gst, total: total };
+
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch(addOrders(orderData));
+    dispatch(clearCart());
+  }
+
+  const address = useSelector((state) => state.address);
 
   return (
     <div className='p-4'>
@@ -52,13 +62,26 @@ const Cart = () => {
                 <h2 className='ring ring-blue-200 p-2 font-semibold rounded-md'>
                   Total - ₹{total}
                 </h2>
-                <AddressCard />
-                <button
-                  className='bg-black text-white p-2 rounded-md cursor-pointer'
-                  onClick={() => navigate('/address')}
-                >
-                  Check Out
-                </button>
+                {
+                  Object.keys(address).length > 0
+                  ?
+                  null
+                  :
+                  <AddressCard />
+                }
+
+                {
+                  Object.keys(address).length > 0
+                    ?
+                    <button
+                      className='bg-black text-white p-2 rounded-md cursor-pointer'
+                      onClick={handleClick}
+                    >
+                      Check Out
+                    </button>
+                    :
+                    null
+                }
               </div>
             </div>
           </div>

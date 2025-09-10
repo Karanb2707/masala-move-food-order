@@ -165,7 +165,7 @@ const AddressCard = () => {
                     {
                         pincodeData.length === 0 && values?.zipcode
                             ?
-                            <div className='col-span-2 text-center text-gray-600 mt-2'>
+                            <div className='col-span-1 text-center text-gray-600 mt-2'>
                                 Loading...
                             </div>
                             :
