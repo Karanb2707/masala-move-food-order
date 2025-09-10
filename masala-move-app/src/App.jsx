@@ -11,7 +11,6 @@ import UserClass from './advanced/classBased/UserClass';
 import { lazy, Suspense } from 'react';
 import ScrolltoTop from './components/ScrolltoTop';
 import Cart from './pages/Cart';
-import AddressCard from './components/AddressCard';
 
 const App = () => {
 
@@ -27,7 +26,6 @@ const App = () => {
           <Route path='/order' element={<Order />} />
           <Route path='/contact' element={<Contact />} />
           <Route path='/cart' element={<Cart />} />
-          <Route path='/address' element={<AddressCard />} />
           <Route path='/restaurant/:resId' element={<Menu />} />
 
           {/* Lazy Loading */}

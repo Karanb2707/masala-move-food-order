@@ -56,12 +56,12 @@ const AddressCard = () => {
     }, [values.zipcode]);
 
     return (
-        <div className='flex items-center justify-center py-12'>
-            <div className='flex flex-col items-center p-4 border rounded-md gap-2'>
-                <h1 className='text-center text-2xl font-semibold'>
+        <div className='w-full items-center justify-center py-2'>
+            <div className='flex flex-col p-4 border rounded-md gap-2'>
+                <h1 className='text-center text-xl font-semibold'>
                     Address Details
                 </h1>
-                <form className='grid grid-cols-1 md:grid-cols-2 gap-4 p-4' onSubmit={handleSubmit}>
+                <form className='grid grid-cols-1 gap-4 p-2' onSubmit={handleSubmit}>
                     <div>
                         <label htmlFor="street" className='block text-md font-medium text-gray-700 mb-2'>
                             Street
@@ -206,7 +206,7 @@ const AddressCard = () => {
                         disabled={!pincodeData.District || !pincodeData.State}
                         className='w-full py-2 mt-2 bg-orange-600 text-white font-semibold rounded-md ring ring-orange-700 cursor-pointer'
                     >
-                        Place Order
+                        Add Address
                     </button>
                 </form>
             </div>

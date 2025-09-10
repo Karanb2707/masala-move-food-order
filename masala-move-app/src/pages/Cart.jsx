@@ -3,6 +3,7 @@ import CartItemCard from '../components/CartItemCard'
 import { useSelector } from 'react-redux'
 import emptyCart from '../assets/images/empty_cart.png';
 import { useNavigate } from 'react-router-dom';
+import AddressCard from '../components/AddressCard';
 
 const Cart = () => {
 
@@ -39,7 +40,7 @@ const Cart = () => {
               </div>
 
               {/* Right side */}
-              <div className='w-full lg:w-[40%] flex flex-col ring ring-slate-300 shadow-xl gap-4 p-3 rounded-md'>
+              <div className='w-full lg:w-[50%] flex flex-col ring ring-slate-300 shadow-xl gap-4 p-3 rounded-md'>
                 <h1 className='text-2xl font-semibold'>
                   Summary
                 </h1>
@@ -51,7 +52,8 @@ const Cart = () => {
                 <h2 className='ring ring-blue-200 p-2 font-semibold rounded-md'>
                   Total - ₹{total}
                 </h2>
-                <button 
+                <AddressCard />
+                <button
                   className='bg-black text-white p-2 rounded-md cursor-pointer'
                   onClick={() => navigate('/address')}
                 >
@@ -60,6 +62,7 @@ const Cart = () => {
               </div>
             </div>
           </div>
+
           :
           <div className='flex flex-col mt-10 items-center'>
             <img src={emptyCart} alt="empty cart" className='h-[200px] w-[180px] sm:h-[260px] sm:w-[240px]' />
