@@ -2,11 +2,14 @@ import React from 'react'
 import CartItemCard from '../components/CartItemCard'
 import { useSelector } from 'react-redux'
 import emptyCart from '../assets/images/empty_cart.png';
+import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
 
   const cartItems = useSelector((state) => state.cart.items);
   console.log('cartItems', cartItems);
+
+  const navigate = useNavigate();
 
   // Calculation part
   const subTotal = cartItems.reduce((sum, item) => sum + parseFloat(item.shownPrice) * item.quantity, 0);
@@ -48,7 +51,10 @@ const Cart = () => {
                 <h2 className='ring ring-blue-200 p-2 font-semibold rounded-md'>
                   Total - {total}
                 </h2>
-                <button className='bg-black text-white p-2 rounded-md cursor-pointer'>
+                <button 
+                  className='bg-black text-white p-2 rounded-md cursor-pointer'
+                  onClick={() => navigate('/address')}
+                >
                   Check Out
                 </button>
               </div>

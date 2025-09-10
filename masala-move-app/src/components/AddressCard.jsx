@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useFormik } from 'formik';
 import { addressSchema } from '../schemas';
 import { PINCOD_API } from '../utils/constants';
+import { useDispatch } from 'react-redux';
+import { addAddress } from '../redux/slices/addressSlice';
 
 const initialValues = {
     street: '',
@@ -13,12 +15,15 @@ const initialValues = {
 
 const AddressCard = () => {
 
+    const dispatch = useDispatch();
+
     const { values, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
         initialValues: initialValues,
         validationSchema: addressSchema,
         onSubmit: (values, action) => {
             const data = { ...values, city: pincodeData.District, state: pincodeData.State }
             console.log('Address data', data);
+            dispatch(addAddress(data));
             action.resetForm();
             setPincodeData([]);
         }
