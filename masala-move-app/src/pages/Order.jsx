@@ -23,7 +23,7 @@ const Order = () => {
               Address Details
             </h1>
           </div>
-          <div className='grid grid-cols-1 md:grid-cols-3 p-4 gap-2 text-[14px] font-semibold'>
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-4 gap-2 text-[14px] font-semibold'>
             <p>Street - {address.street}</p>
             <p>Apartment - {address.apartment}</p>
             <p>House No - {address.houseno}</p>
@@ -34,7 +34,7 @@ const Order = () => {
         </div>
 
         {/* Order cards */}
-        
+
 
       </div>
     </div>
