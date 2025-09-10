@@ -23,8 +23,8 @@ const CartItemCard = ({ cartItem }) => {
             <img src={imgUrl} alt="food img" className='h-[70px] w-[80px] ring ring-orange-200 rounded-md' />
             
             <div className='flex flex-col gap-1 text-center sm:text-left'>
-                <p className='text-[18px] font-semibold'>
-                    {`${name.substring(0, 20)}...`}
+                <p className='text-[16px] font-semibold'>
+                    {`${name.substring(0, 28)}...`}
                 </p>
                 <p className='text-[16px] font-semibold '>
                     Price - ₹{parseFloat(shownPrice)}

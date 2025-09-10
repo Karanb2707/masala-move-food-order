@@ -7,8 +7,7 @@ const addressSlice = createSlice({
     initialState,
     reducers: {
         addAddress: (state, action) => {
-            const address = action.payload;
-            state = address;
+            return action.payload;
         }
     }
 });
