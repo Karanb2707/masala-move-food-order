@@ -44,12 +44,12 @@ const Cart = () => {
                   Summary
                 </h1>
                 <div className='ring ring-blue-200 p-2 rounded-md flex flex-col gap-1 font-semibold'>
-                  <p>Sub-total - {subTotal}</p>
-                  <p>Shipping - {subTotal > 0 ? 100 : 0}</p>
-                  <p>GST - {gst}</p>
+                  <p>Sub-total - ₹{subTotal}</p>
+                  <p>Shipping - ₹{subTotal > 0 ? 100 : 0}</p>
+                  <p>GST - ₹{gst}</p>
                 </div>
                 <h2 className='ring ring-blue-200 p-2 font-semibold rounded-md'>
-                  Total - {total}
+                  Total - ₹{total}
                 </h2>
                 <button 
                   className='bg-black text-white p-2 rounded-md cursor-pointer'
