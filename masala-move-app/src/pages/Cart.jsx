@@ -16,7 +16,8 @@ const Cart = () => {
   const gst = (subTotal * 0.18).toFixed(2);
   const total = (subTotal + parseFloat(gst)).toFixed(2);
 
-  const orderData = { orders: cartItems, subTotal: subTotal, gst: gst, total: total };
+  const orderId = Date.now();
+  const orderData = { id: orderId, orders: cartItems, subTotal: subTotal, gst: gst, total: total };
 
   const dispatch = useDispatch();
 
@@ -64,10 +65,10 @@ const Cart = () => {
                 </h2>
                 {
                   Object.keys(address).length > 0
-                  ?
-                  null
-                  :
-                  <AddressCard />
+                    ?
+                    null
+                    :
+                    <AddressCard />
                 }
 
                 {

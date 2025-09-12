@@ -1,13 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {}
+const initialState = {
+    orderData: []
+}
 
 const orderSlice = createSlice({
     name: 'order',
     initialState,
     reducers: {
         addOrders: (state, action) => {
-            return action.payload;
+            state.orderData.push({ ...action.payload });
         }
     }
 });

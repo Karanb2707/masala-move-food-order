@@ -1,17 +1,15 @@
-import React from 'react'
-import logo from '../assets/images/logo.png'
 
 const OrderItemCard = ({ order }) => {
   return (
-    <div className='flex flex-col md:flex-row justify-between gap-2 p-2 m-2 border border-orange-900 rounded-lg'>
+    <div className='flex flex-col md:flex-row justify-between gap-2 p-2 m-2 border border-slate-400 rounded-lg'>
 
       <div className='flex gap-2'>
-        <img src={logo} alt="food image" className='w-[120px] border border-orange-300 rounded-lg' />
-        <div className='flex flex-col p-2 border border-orange-300 rounded-lg text-[14px] font-semibold'>
-          <h1>Name- {order.name}</h1>
-          <p>Price- {order.price}</p>
-          <p>Quantity- {order.quantity}</p>
-          <p>Toatl Price- {order.totalprice}</p>
+        <img src={order.imgUrl} alt="food image" className='w-[120px] h-[110px] border border-orange-300 rounded-lg' />
+        <div className='flex flex-col px-2 py-1 gap-1 rounded-lg text-[14px] font-semibold'>
+          <h1>{`${order.name.substring(0,25)}...`}</h1>
+          <p>Price - {order.shownPrice}</p>
+          <p>Quantity - {order.quantity}</p>
+          <p>Toatl Price - </p>
         </div>
       </div>
 

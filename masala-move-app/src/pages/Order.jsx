@@ -1,18 +1,19 @@
 import { FaLocationDot } from "react-icons/fa6";
 import { useSelector } from "react-redux";
 import OrderItemCard from "../components/OrderItemCard";
+import OrderDetailsCard from "../components/OrderDetailsCard";
 
 const Order = () => {
 
   const address = useSelector((state) => state.address);
   console.log('address', address);
 
-  const orderDetails = useSelector((state) => state.order);
+  const orderDetails = useSelector((state) => state.order.orderData);
   console.log('order data', orderDetails);
 
   return (
     <div className='flex flex-col items-center'>
-      <div className='w-full md:w-[60%] flex flex-col mt-8 gap-4 px-6'>
+      <div className='w-full md:w-[55%] flex flex-col mt-8 gap-4 px-6'>
 
         {/* Header */}
         <h1 className='text-2xl font-semibold text-center'>
@@ -20,7 +21,7 @@ const Order = () => {
         </h1>
 
         {
-          Object.keys(orderDetails).length > 0
+          orderDetails.length > 0
             ?
             <div className='flex flex-col mt-2 border p-3 gap-2 rounded-md'>
 
@@ -41,22 +42,11 @@ const Order = () => {
                 </div>
               </div>
 
-              <div>
-                <div className="flex items-center gap-2">
-                  <FaLocationDot className="text-xl text-orange-600" />
-                  <h1 className='text-[18px] font-semibold'>
-                    Order Details
-                  </h1>
-                </div>
-
-                <div className="flex flex-col">
-                  {
-                    orderDetails.orders.map(order => (
-                      <OrderItemCard order={order} key={order.order.id} />
-                    ))
-                  }
-                </div>
-              </div>
+              {
+                orderDetails.map(orderDetail => (
+                  <OrderDetailsCard orderDetail={orderDetail} key={orderDetail.id} />
+                ))
+              }
 
             </div>
             :
