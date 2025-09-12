@@ -1,6 +1,5 @@
 import { FaLocationDot } from "react-icons/fa6";
 import { useSelector } from "react-redux";
-import OrderItemCard from "../components/OrderItemCard";
 import OrderDetailsCard from "../components/OrderDetailsCard";
 
 const Order = () => {
@@ -23,7 +22,7 @@ const Order = () => {
         {
           orderDetails.length > 0
             ?
-            <div className='flex flex-col mt-2 border p-3 gap-2 rounded-md'>
+            <div className='flex flex-col mt-2 border border-slate-500 p-3 gap-2 rounded-md my-6'>
 
               <div>
                 <div className="flex items-center gap-2">

@@ -1,11 +1,11 @@
-import { FaLocationDot } from "react-icons/fa6";
 import OrderItemCard from "../components/OrderItemCard";
+import { IoBagCheck } from "react-icons/io5";
 
 const OrderDetailsCard = ({orderDetail}) => {
     return (
-        <div className="border p-2 rounded-lg">
+        <div className="border border-slate-400 p-2 rounded-lg">
             <div className="flex items-center gap-2">
-                <FaLocationDot className="text-xl text-orange-600" />
+                <IoBagCheck className="text-xl text-orange-600" />
                 <h1 className='text-[18px] font-semibold'>
                     Order Details
                 </h1>
