@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    orderData: []
-}
+    orderData: JSON.parse(localStorage.getItem("orderData")) || []
+};
 
 const orderSlice = createSlice({
-    name: 'order',
+    name: "order",
     initialState,
     reducers: {
         addOrders: (state, action) => {
