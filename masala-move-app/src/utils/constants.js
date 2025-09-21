@@ -8,4 +8,4 @@ export const API_URL = 'http://localhost:5000/api/swiggy/dapi/restaurants/list/v
 
 export const MENU_API = 'http://localhost:5000/api/swiggy/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=19.2122949&lng=72.97716609999999&restaurantId=';
 
-export const PINCOD_API = 'https://api.postalpincode.in/pincode/'
+export const PINCOD_API = 'https://api.postalpincode.in/pincode'
