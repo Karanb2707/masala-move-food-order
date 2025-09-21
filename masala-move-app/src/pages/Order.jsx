@@ -3,62 +3,52 @@ import { useSelector } from "react-redux";
 import OrderDetailsCard from "../components/OrderDetailsCard";
 
 const Order = () => {
-
   const address = useSelector((state) => state.address);
-  console.log('address', address);
-
   const orderDetails = useSelector((state) => state.order.orderData);
-  console.log('order data', orderDetails);
 
   return (
-    <div className='flex flex-col items-center'>
-      <div className='w-full lg:w-[65%] flex flex-col mt-8 gap-4 px-6'>
+    <div className="flex flex-col items-center bg-gray-50 min-h-screen py-8">
+      <div className="w-full lg:w-[65%] flex flex-col gap-6 px-4 md:px-6">
 
-        {/* Header */}
-        <h1 className='text-2xl font-semibold text-center'>
+        {/* Page Header */}
+        <h1 className="text-3xl md:text-4xl font-bold text-center text-gray-800">
           Your Orders
         </h1>
 
-        {
-          orderDetails.length > 0
-            ?
-            <div className='flex flex-col mt-2 border border-slate-400 p-3 gap-2 rounded-md my-6'>
+        {orderDetails.length > 0 ? (
+          <div className="flex flex-col gap-6">
 
-              <div>
-                <div className="flex items-center gap-2">
-                  <FaLocationDot className="text-xl text-orange-600" />
-                  <h1 className='text-[18px] font-semibold'>
-                    Address Details
-                  </h1>
-                </div>
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-4 gap-2 text-[14px] font-semibold'>
-                  <p>Street - {address.street}</p>
-                  <p>Apartment - {address.apartment}</p>
-                  <p>House No - {address.houseno}</p>
-                  <p>Zip Code - {address.zipcode}</p>
-                  <p>City - {address.city}</p>
-                  <p>State - {address.state}</p>
-                </div>
+            {/* Address Card */}
+            <div className="bg-white border border-slate-200 shadow-md rounded-2xl p-4 md:p-6 hover:shadow-lg transition-shadow">
+              <div className="flex items-center gap-2 mb-4">
+                <FaLocationDot className="text-2xl text-orange-600" />
+                <h1 className="text-xl font-semibold text-gray-800">Address Details</h1>
               </div>
-
-              {
-                orderDetails.map(orderDetail => (
-                  <OrderDetailsCard orderDetail={orderDetail} key={orderDetail.id} />
-                ))
-              }
-
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-gray-700 font-medium text-sm">
+                <p><span className="font-semibold text-gray-800">Street:</span> {address.street}</p>
+                <p><span className="font-semibold text-gray-800">Apartment:</span> {address.apartment}</p>
+                <p><span className="font-semibold text-gray-800">House No:</span> {address.houseno}</p>
+                <p><span className="font-semibold text-gray-800">Zip Code:</span> {address.zipcode}</p>
+                <p><span className="font-semibold text-gray-800">City:</span> {address.city}</p>
+                <p><span className="font-semibold text-gray-800">State:</span> {address.state}</p>
+              </div>
             </div>
-            :
-            <div className="text-center mt-10 text-xl font-semibold">
-              <h1>
-                No Orders Placed Yet!!
-              </h1>
-            </div>
-        }
 
+            {/* Orders List */}
+            <div className="flex flex-col gap-4">
+              {orderDetails.map(orderDetail => (
+                <OrderDetailsCard orderDetail={orderDetail} key={orderDetail.id} />
+              ))}
+            </div>
+          </div>
+        ) : (
+          <div className="text-center mt-20 text-xl md:text-2xl font-semibold text-gray-500">
+            No Orders Placed Yet!!
+          </div>
+        )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Order
+export default Order;
