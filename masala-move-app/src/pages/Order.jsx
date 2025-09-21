@@ -12,7 +12,7 @@ const Order = () => {
 
   return (
     <div className='flex flex-col items-center'>
-      <div className='w-full md:w-[55%] flex flex-col mt-8 gap-4 px-6'>
+      <div className='w-full lg:w-[65%] flex flex-col mt-8 gap-4 px-6'>
 
         {/* Header */}
         <h1 className='text-2xl font-semibold text-center'>
@@ -22,7 +22,7 @@ const Order = () => {
         {
           orderDetails.length > 0
             ?
-            <div className='flex flex-col mt-2 border border-slate-500 p-3 gap-2 rounded-md my-6'>
+            <div className='flex flex-col mt-2 border border-slate-400 p-3 gap-2 rounded-md my-6'>
 
               <div>
                 <div className="flex items-center gap-2">

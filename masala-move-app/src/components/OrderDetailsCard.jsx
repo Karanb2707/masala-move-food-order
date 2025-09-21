@@ -3,7 +3,7 @@ import { IoBagCheck } from "react-icons/io5";
 
 const OrderDetailsCard = ({orderDetail}) => {
     return (
-        <div className="border border-slate-400 p-2 rounded-lg">
+        <div className="border border-slate-300 p-2 rounded-lg">
             <div className="flex items-center gap-2">
                 <IoBagCheck className="text-xl text-orange-600" />
                 <h1 className='text-[18px] font-semibold'>
