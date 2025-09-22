@@ -8,9 +8,12 @@ const addressSlice = createSlice({
     reducers: {
         addAddress: (state, action) => {
             return action.payload;
+        },
+        clearAddress: () => {
+            return initialState;
         }
     }
 });
 
-export const { addAddress } = addressSlice.actions;
+export const { addAddress, clearAddress } = addressSlice.actions;
 export default addressSlice.reducer;

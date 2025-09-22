@@ -5,13 +5,17 @@ import emptyCart from '../assets/images/empty_cart.png';
 import AddressCard from '../components/AddressCard';
 import { addOrders } from '../redux/slices/orderSlice';
 import { clearCart } from '../redux/slices/cartSlice';
-import { ShoppingBag, MapPin, Plus } from 'lucide-react';
+import { ShoppingBag, MapPin, Plus, Minus } from 'lucide-react';
+import { clearAddress } from '../redux/slices/addressSlice';
+import { useRef } from 'react';
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.items);
   const address = useSelector((state) => state.address);
   const dispatch = useDispatch();
   const [showAddressForm, setShowAddressForm] = useState(false);
+
+  const addressRef = useRef(null);
 
   // Calculations
   const subTotal = cartItems.reduce((sum, item) => sum + parseFloat(item.shownPrice) * item.quantity, 0);
@@ -30,6 +34,16 @@ const Cart = () => {
     };
     dispatch(addOrders(orderData));
     dispatch(clearCart());
+  }
+
+  const handleScrollToAddress = () => {
+    setShowAddressForm(true);
+    addressRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  const handleEditAddress = () => {
+    setShowAddressForm(!showAddressForm);
+    dispatch(clearAddress());
   }
 
   const hasAddress = Object.keys(address).length > 0;
@@ -52,7 +66,10 @@ const Cart = () => {
           <div className='space-y-6'>
             
             {/* Address Section */}
-            <div className='bg-white rounded-lg shadow-sm border border-gray-200 p-6'>
+            <div
+              ref={addressRef}
+              className='bg-white rounded-lg shadow-sm border border-gray-200 p-6'
+            >
               <h2 className='text-lg font-semibold text-gray-900 flex items-center gap-2 mb-4'>
                 <MapPin className='w-5 h-5' />
                 Delivery Address
@@ -70,7 +87,7 @@ const Cart = () => {
                       </div>
                     </div>
                     <button 
-                      onClick={() => setShowAddressForm(!showAddressForm)}
+                      onClick={handleEditAddress}
                       className="text-green-600 hover:text-green-700 text-sm font-medium"
                     >
                       Edit
@@ -85,20 +102,29 @@ const Cart = () => {
                       <p className="text-sm text-orange-700">Required to process your order</p>
                     </div>
                     <button
-                      onClick={() => setShowAddressForm(true)}
+                      onClick={() => setShowAddressForm(!showAddressForm)}
                       className="bg-orange-500 text-white p-2 rounded-lg hover:bg-orange-600"
                     >
-                      <Plus className="w-5 h-5" />
+                      {
+                        showAddressForm
+                        ?
+                        <Minus className="w-5 h-5" />
+                        :
+                        <Plus className="w-5 h-5" />
+                      }
                     </button>
                   </div>
                 </div>
               )}
               
-              {showAddressForm && (
+              {showAddressForm
+                ?
                 <div className="mt-6 border-t border-gray-200 pt-6">
-                  <AddressCard />
+                  <AddressCard setShowAddressForm={setShowAddressForm}/>
                 </div>
-              )}
+                : 
+                null
+              }
             </div>
 
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-6'>
@@ -152,7 +178,7 @@ const Cart = () => {
                     </button>
                   ) : (
                     <button
-                      onClick={() => setShowAddressForm(true)}
+                      onClick={handleScrollToAddress}
                       className='w-full bg-gray-100 text-gray-600 font-semibold py-3 rounded-lg border-2 border-dashed border-gray-300 hover:border-orange-500 hover:text-orange-600 transition-colors mt-4'
                     >
                       Add Address to Continue

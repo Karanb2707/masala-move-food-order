@@ -12,7 +12,7 @@ const initialValues = {
     zipcode: '',
 }
 
-const AddressCard = () => {
+const AddressCard = ({setShowAddressForm}) => {
     const dispatch = useDispatch();
 
     const { values, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
@@ -24,6 +24,7 @@ const AddressCard = () => {
             dispatch(addAddress(data));
             action.resetForm();
             setPincodeData([]);
+            setShowAddressForm(false);
         }
     })
 
