@@ -23,7 +23,7 @@ const Login = () => {
         onSubmit: (values, action) => {
             if(userDetails.email === values.email && userDetails.password === values.password) {
                 console.log('login successful');
-                navigate('/home')
+                navigate('/')
             }
             else {
                 console.log('login failed');

@@ -2,8 +2,8 @@ import * as Yup from 'yup';
 
 // Address Form schema
 export const addressSchema = Yup.object({
-    street: Yup.string().min(3).max(25).required('Please enter your street'),
-    apartment: Yup.string().min(3).max(25).required('Please enter your apartment'),
+    street: Yup.string().min(3).max(15).required('Please enter your street'),
+    apartment: Yup.string().min(3).max(15).required('Please enter your apartment'),
     houseno: Yup.string()
         .matches(/^\d+$/, "House number must be digits only")
         .min(2, "House number must have at least 2 digits")

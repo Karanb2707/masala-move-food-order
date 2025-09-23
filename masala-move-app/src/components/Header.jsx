@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import logo from '../assets/images/logo.png';
 import { IoMdCart } from "react-icons/io";
 import { IoIosHome } from "react-icons/io";
@@ -10,16 +10,9 @@ import { UserContext } from '../context/UserContext';
 import { useSelector } from 'react-redux';
 
 const Header = () => {
-  const { userName, setUserName } = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
   const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setUserName('Karan');
-    }, 2000);
-    return () => clearTimeout(timer);
-  }, [setUserName]);
 
   const cartItems = useSelector((state) => state.cart.items);
   const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
@@ -28,6 +21,8 @@ const Header = () => {
   const cartHandleClick = () => {
     navigate('cart');
   };
+
+  const loginHandleClick = () => navigate('/login');
 
   return (
     <div className='fixed top-0 left-0 w-full z-50 bg-white flex justify-between items-center px-4 sm:px-10 py-2 shadow-sm shadow-gray-500'>
@@ -74,10 +69,21 @@ const Header = () => {
           </span>
         </div>
 
-        {/* User */}
+        {/* User or Login Button */}
         <div className='hidden sm:flex gap-2 items-center'>
-          <FaUserCircle className='text-3xl text-orange-600 cursor-pointer' />
-          <h2 className='text-orange-600 font-semibold'>{userName}</h2>
+          {user ? (
+            <>
+              <FaUserCircle className='text-3xl text-orange-600 cursor-pointer' />
+              <h2 className='text-orange-600 font-semibold'>{user.name}</h2>
+            </>
+          ) : (
+            <button 
+              className='bg-orange-600 text-white px-4 py-1 rounded-md font-semibold cursor-pointerP'
+              onClick={loginHandleClick}
+            >
+              Login
+            </button>
+          )}
         </div>
 
         {/* Hamburger Menu Button (Mobile Only) */}
@@ -114,8 +120,19 @@ const Header = () => {
               </NavLink>
             </li>
             <li className='flex gap-2 items-center mt-2'>
-              <FaUserCircle className='text-2xl text-orange-600' />
-              <h2 className='text-orange-600 font-semibold'>{userName}</h2>
+              {user ? (
+                <>
+                  <FaUserCircle className='text-2xl text-orange-600' />
+                  <h2 className='text-orange-600 font-semibold'>{user.name}</h2>
+                </>
+              ) : (
+                <button 
+                  className='bg-orange-600 text-white px-3 py-1 rounded-md font-semibold'
+                  onClick={() => { setMenuOpen(false); loginHandleClick(); }}
+                >
+                  Login
+                </button>
+              )}
             </li>
           </ul>
         </div>
