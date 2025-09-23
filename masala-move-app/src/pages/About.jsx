@@ -27,8 +27,8 @@ const About = () => {
       {/* Contact / Footer */}
       <div className="text-center text-gray-600 text-sm">
         <p>📍 Based in India</p>
-        <p>📞 +91 98765 43210</p>
-        <p>✉️ support@masalamove.com</p>
+        <p>📞 +91 8425952506</p>
+        <p>✉️ karan@masalamove.com</p>
       </div>
     </div>
   );
