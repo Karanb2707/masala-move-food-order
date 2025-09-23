@@ -2,10 +2,16 @@ import { FaLocationDot } from "react-icons/fa6";
 import { useSelector } from "react-redux";
 import OrderDetailsCard from "../components/OrderDetailsCard";
 import { ShoppingBag, Package } from 'lucide-react';
+import { useNavigate } from "react-router-dom";
 
 const Order = () => {
   const address = useSelector((state) => state.address);
   const orderDetails = useSelector((state) => state.order.orderData);
+
+  const navigate = useNavigate();
+  const handleStartShopping = () => {
+    navigate('/')
+  }
 
   return (
     <div className="min-h-screen bg-gray-50 py-6">
@@ -46,7 +52,7 @@ const Order = () => {
                   </div>
                 </div>
               </div>
-              
+
               <div className="p-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   <div className="space-y-1">
@@ -90,7 +96,7 @@ const Order = () => {
                   </span>
                 </div>
               </div>
-              
+
               <div className="divide-y divide-gray-200">
                 {orderDetails.map(orderDetail => (
                   <div key={orderDetail.id} className="p-6">
@@ -102,25 +108,28 @@ const Order = () => {
           </div>
         ) : (
           /* Empty State */
-          <div className="text-center py-16">
+          <div className="text-center py-6">
             <div className="max-w-md mx-auto">
               <div className="mb-6">
                 <div className="mx-auto w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center">
                   <Package className="w-12 h-12 text-gray-400" />
                 </div>
               </div>
-              
+
               <div className="space-y-4">
                 <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
                   No orders yet
                 </h2>
-                
+
                 <p className="text-gray-600 text-lg">
                   When you place your first order, it will appear here.
                 </p>
-                
+
                 <div className="pt-6">
-                  <button className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] shadow-lg hover:shadow-xl">
+                  <button
+                    onClick={handleStartShopping}
+                    className='bg-orange-600 text-white px-4 py-2 rounded-md font-semibold cursor-pointer'
+                  >
                     Start Shopping
                   </button>
                 </div>

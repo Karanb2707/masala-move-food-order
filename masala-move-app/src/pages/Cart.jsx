@@ -8,6 +8,8 @@ import { clearCart } from '../redux/slices/cartSlice';
 import { ShoppingBag, MapPin, Plus, Minus } from 'lucide-react';
 import { clearAddress } from '../redux/slices/addressSlice';
 import { useRef } from 'react';
+import { useNavigate } from "react-router-dom";
+
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.items);
@@ -16,6 +18,11 @@ const Cart = () => {
   const [showAddressForm, setShowAddressForm] = useState(false);
 
   const addressRef = useRef(null);
+
+  const navigate = useNavigate();
+  const handleStartShopping = () => {
+    navigate('/')
+  }
 
   // Calculations
   const subTotal = cartItems.reduce((sum, item) => sum + parseFloat(item.shownPrice) * item.quantity, 0);
@@ -189,10 +196,18 @@ const Cart = () => {
             </div>
           </div>
         ) : (
-          <div className='text-center py-12'>
+          <div className='text-center'>
             <img src={emptyCart} alt="Empty cart" className='h-48 w-48 mx-auto object-contain mb-6' />
             <h2 className='text-2xl font-bold text-gray-900 mb-2'>Your cart is empty</h2>
             <p className='text-gray-600'>Add some items to get started</p>
+            <div className="pt-6">
+                  <button
+                    onClick={handleStartShopping}
+                    className='bg-orange-600 text-white px-4 py-2 rounded-md font-semibold cursor-pointer'
+                  >
+                    Start Shopping
+                  </button>
+                </div>
           </div>
         )}
       </div>
