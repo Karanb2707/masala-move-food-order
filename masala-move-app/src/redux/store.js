@@ -4,6 +4,7 @@ import addressReducer from './slices/addressSlice';
 import orderReducer from './slices/orderSlice';
 import cartMiddleware from './middleware/cartMiddleware';
 import orderMiddleware from './middleware/orderMiddleware';
+import addressMiddleware from './middleware/addressMiddleware';
 
 export const store = configureStore({
     reducer: {
@@ -12,5 +13,5 @@ export const store = configureStore({
         order: orderReducer
     },
     middleware: (getDefaultMiddleware) => 
-        getDefaultMiddleware().concat(cartMiddleware, orderMiddleware)
+        getDefaultMiddleware().concat(cartMiddleware, orderMiddleware, addressMiddleware)
 })

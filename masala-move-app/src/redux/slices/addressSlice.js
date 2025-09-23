@@ -1,16 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {}
+const initialState = JSON.parse(localStorage.getItem("userAddress")) || {};
 
 const addressSlice = createSlice({
-    name: 'address',
+    name: "address",
     initialState,
     reducers: {
         addAddress: (state, action) => {
             return action.payload;
         },
         clearAddress: () => {
-            return initialState;
+            return {};
         }
     }
 });
