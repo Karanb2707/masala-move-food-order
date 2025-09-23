@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useFormik } from 'formik';
 import { registerSchema } from '../schemas';
 import { UserContext } from '../context/UserContext';
+import toast from "react-hot-toast";
 
 const initialValues = {
     name: '',
@@ -21,6 +22,7 @@ const Register = () => {
         validationSchema: registerSchema,
         onSubmit: (values, action) => {
             userContext.setUser(values);
+            toast.success("User created successfully ✅");
             console.log('values', values);
             action.resetForm();
         }

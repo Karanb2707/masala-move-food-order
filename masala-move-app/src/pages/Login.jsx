@@ -4,6 +4,7 @@ import { useFormik } from 'formik';
 import { loginSchema } from '../schemas';
 import { useContext } from 'react';
 import { UserContext } from '../context/UserContext';
+import toast from "react-hot-toast";
 
 const initialValues = {
     email: '',
@@ -22,11 +23,11 @@ const Login = () => {
         validationSchema: loginSchema,
         onSubmit: (values, action) => {
             if(userDetails.email === values.email && userDetails.password === values.password) {
-                console.log('login successful');
+                toast.success("Login Successful 🎉");
                 navigate('/')
             }
             else {
-                console.log('login failed');
+                toast.error("Invalid email or password ❌");
             }
             console.log('values', values);
             action.resetForm();
