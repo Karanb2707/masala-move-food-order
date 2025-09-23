@@ -39,7 +39,7 @@ const Body = () => {
     return (
         <div className='flex flex-col items-center justify-center mt-5 gap-4'>
             {/* Search Compo and Filter */}
-            <div className='flex justify-center items-evenly gap-4'>
+            <div className='flex flex-col md:flex-row justify-center items-evenly gap-4'>
                 <SearchComp
                     restaurants={restaurants}
                     setRestaurants={setRestaurants}
