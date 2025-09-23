@@ -4,6 +4,7 @@ import { addressSchema } from '../schemas';
 import { PINCOD_API } from '../utils/constants';
 import { useDispatch } from 'react-redux';
 import { addAddress } from '../redux/slices/addressSlice';
+import toast from "react-hot-toast";
 
 const initialValues = {
     street: '',
@@ -22,6 +23,7 @@ const AddressCard = ({setShowAddressForm}) => {
             const data = { ...values, city: pincodeData.District, state: pincodeData.State }
             console.log('Address data', data);
             dispatch(addAddress(data));
+            toast.success("Address Added 🏠");
             action.resetForm();
             setPincodeData([]);
             setShowAddressForm(false);

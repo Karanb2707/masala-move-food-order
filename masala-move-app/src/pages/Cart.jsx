@@ -9,6 +9,7 @@ import { ShoppingBag, MapPin, Plus, Minus } from 'lucide-react';
 import { clearAddress } from '../redux/slices/addressSlice';
 import { useRef } from 'react';
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 
 const Cart = () => {
@@ -41,6 +42,7 @@ const Cart = () => {
     };
     dispatch(addOrders(orderData));
     dispatch(clearCart());
+    toast.success("Order Placed! 💶");
   }
 
   const handleScrollToAddress = () => {

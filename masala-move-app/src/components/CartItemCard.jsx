@@ -3,6 +3,7 @@ import { IoMdAdd } from "react-icons/io";
 import { HiMinusSm } from "react-icons/hi";
 import { useDispatch } from 'react-redux';
 import { addItem, removeItem } from '../redux/slices/cartSlice';
+import toast from "react-hot-toast";
 
 const CartItemCard = ({ cartItem }) => {
     const { id, name, shownPrice, imgUrl, quantity } = cartItem;
@@ -12,10 +13,12 @@ const CartItemCard = ({ cartItem }) => {
 
     const handleAddItem = (cartItem) => {
         dispatch(addItem(cartItem));
+        toast.success("Item added in cart 🛒");
     }
     
     const handleRemoveItem = (id) => {
         dispatch(removeItem(id));
+        toast.error("Item removed from cart 🛒");
     }
 
     return (

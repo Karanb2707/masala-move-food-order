@@ -5,6 +5,7 @@ import { CDN_URL } from '../utils/constants.js';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItem, removeItem } from '../redux/slices/cartSlice.js';
 import { UserContext } from '../context/UserContext';
+import toast from "react-hot-toast";
 
 const MenuItemCard = ({ itemData }) => {
     const info = itemData?.card?.info;
@@ -42,10 +43,12 @@ const MenuItemCard = ({ itemData }) => {
             return;
         }
         dispatch(addItem(itemInfo));
+        toast.success("Item added in cart 🛒");
     };
 
     const handleRemoveItem = (id) => {
         dispatch(removeItem(id));
+        toast.error("Item removed from cart 🛒");
     };
 
     return (
