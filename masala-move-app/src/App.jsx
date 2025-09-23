@@ -11,6 +11,7 @@ import UserClass from './advanced/classBased/UserClass';
 import { lazy, Suspense } from 'react';
 import ScrolltoTop from './components/ScrolltoTop';
 import Cart from './pages/Cart';
+import Login from './pages/Login';
 
 const App = () => {
 
@@ -22,6 +23,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={<Home />} />
+          <Route path='/login' element={<Login />} />
           <Route path='/about' element={<About />} />
           <Route path='/order' element={<Order />} />
           <Route path='/contact' element={<Contact />} />

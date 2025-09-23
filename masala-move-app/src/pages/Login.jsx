@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
-import logo from '../assets/images/logo1.png';
+import logo from '../assets/images/logo.png';
 import { useFormik } from 'formik';
 import { loginSchema } from '../schemas';
 import { useContext } from 'react';

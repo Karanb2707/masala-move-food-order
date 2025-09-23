@@ -2,7 +2,7 @@ import React from 'react'
 import Header from '../components/Header'
 import { Outlet } from 'react-router-dom'
 import useOnlineStatus from '../hooks/useOnlineStatus'
-import noInternetImg from '../assets/images/NoConnection.png'
+import noInternetImg from '../assets/images/no_connection.png'
 
 const Layout = () => {
 
