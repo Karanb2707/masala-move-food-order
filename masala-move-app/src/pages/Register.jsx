@@ -47,12 +47,12 @@ const Register = () => {
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                                 placeholder='eg., Karan'
-                                className="mt-1 w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-black"
+                                className="mt-1 w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-0 focus:ring-1 focus:ring-orange-600"
                             />
                             {
                                 errors.name && touched.name
                                     ?
-                                    <p className='text-sm text-red-600'>
+                                    <p className='text-sm text-red-600 mt-1'>
                                         {errors.name}
                                     </p>
                                     :
@@ -72,12 +72,12 @@ const Register = () => {
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                                 placeholder='eg., karan@example.com'
-                                className="mt-1 w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-black"
+                                className="mt-1 w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-0 focus:ring-1 focus:ring-orange-600"
                             />
                             {
                                 errors.email && touched.email
                                     ?
-                                    <p className='text-sm text-red-600'>
+                                    <p className='text-sm text-red-600 mt-1'>
                                         {errors.email}
                                     </p>
                                     :
@@ -97,12 +97,12 @@ const Register = () => {
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                                 placeholder='At least 6 characters'
-                                className="mt-1 w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-black"
+                                className="mt-1 w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-0 focus:ring-1 focus:ring-orange-600"
                             />
                             {
                                 errors.password && touched.password
                                     ?
-                                    <p className='text-sm text-red-600'>
+                                    <p className='text-sm text-red-600 mt-1'>
                                         {errors.password}
                                     </p>
                                     :
@@ -122,12 +122,12 @@ const Register = () => {
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                                 placeholder='Same as Password'
-                                className="mt-1 w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-black"
+                                className="mt-1 w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-0 focus:ring-1 focus:ring-orange-600"
                             />
                             {
                                 errors.confirm_password && touched.confirm_password
                                     ?
-                                    <p className='text-sm text-red-600'>
+                                    <p className='text-sm text-red-600 mt-1'>
                                         {errors.confirm_password}
                                     </p>
                                     :
@@ -136,14 +136,14 @@ const Register = () => {
                         </div>
                         <button
                             type="submit"
-                            className="w-full bg-black text-white font-semibold py-2 px-4 mt-2 rounded-md cursor-pointer"
+                            className="w-full bg-orange-600 text-white font-semibold py-2 px-4 mt-2 rounded-md cursor-pointer"
                         >
                             Register
                         </button>
                     </form>
 
                     <p className='text-md text-center text-gray-500 mt-4'>
-                        Don't have an account? <Link to='/' className='text-black underline'>login</Link>
+                        Don't have an account? <Link to='/login' className='text-red-600 underline'>login</Link>
                     </p>
                 </div>
 
@@ -152,7 +152,7 @@ const Register = () => {
                     <img
                         src={registerImg}
                         alt="Register"
-                        className="w-full h-full object-cover rounded-lg"
+                        className="w-full h-full object-cover rounded-r-lg"
                     />
                 </div>
             </div>

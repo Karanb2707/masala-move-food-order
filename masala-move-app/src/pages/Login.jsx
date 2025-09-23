@@ -38,8 +38,8 @@ const Login = () => {
             <div className='bg-white p-10 rounded-2xl shadow-lg shadow-slate-600 w-full max-w-md ring ring-slate-400'>
 
                 {/* Logo + Title */}
-                <div className='flex items-center justify-center gap-3 mb-8'>
-                    <img src={logo} alt="logo" className='h-12 rounded-md object-cover' />
+                <div className='flex items-center justify-center gap-2 mb-4'>
+                    <img src={logo} alt="logo" className='h-[80px] rounded-md object-cover' />
                 </div>
 
                 {/* Form Title */}
@@ -59,7 +59,7 @@ const Login = () => {
                             value={values.email}
                             onChange={handleChange}
                             onBlur={handleBlur}
-                            className='w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black transition'
+                            className='w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-0 focus:ring-1 focus:ring-orange-600'
                             placeholder="karan@example.com"
                         />
                         {
@@ -85,7 +85,7 @@ const Login = () => {
                             value={values.password}
                             onChange={handleChange}
                             onBlur={handleBlur}
-                            className='w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black transition'
+                            className='w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-0 focus:ring-1 focus:ring-orange-600'
                             placeholder="••••••••"
                         />
                         {
@@ -101,7 +101,7 @@ const Login = () => {
 
                     <button
                         type="submit"
-                        className='mt-4 bg-black text-white py-2 rounded-md font-semibold cursor-pointer'
+                        className='mt-4 bg-orange-600 text-white py-2 rounded-md font-semibold cursor-pointer'
                     >
                         Login
                     </button>
@@ -109,7 +109,7 @@ const Login = () => {
 
                 {/* Optional Links */}
                 <p className='text-md text-center text-gray-500 mt-6'>
-                    Don't have an account? <Link to='/register' className='text-black underline'>register</Link>
+                    Don't have an account? <Link to='/register' className='text-red-600 underline'>register</Link>
                 </p>
             </div>
         </div>

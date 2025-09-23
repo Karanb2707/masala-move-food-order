@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Layout from './pages/Layout';
+import Layout from './pages/Layout'; //with header
+import PublicLayout from './pages/PublicLayout'; // without header
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
@@ -12,6 +13,7 @@ import { lazy, Suspense } from 'react';
 import ScrolltoTop from './components/ScrolltoTop';
 import Cart from './pages/Cart';
 import Login from './pages/Login';
+import Register from './pages/Register';
 
 const App = () => {
 
@@ -21,9 +23,14 @@ const App = () => {
     <BrowserRouter>
       <ScrolltoTop />
       <Routes>
+
+        <Route element={<PublicLayout />}>
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
+        </Route>
+
         <Route path='/' element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path='/login' element={<Login />} />
           <Route path='/about' element={<About />} />
           <Route path='/order' element={<Order />} />
           <Route path='/contact' element={<Contact />} />
