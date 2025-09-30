@@ -4,8 +4,8 @@ export const CDN_URL = 'https://media-assets.swiggy.com/swiggy/image/upload/fl_l
 
 // export const MENU_API = 'https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=19.2122949&lng=72.97716609999999&restaurantId='
 
-export const API_URL = 'http://localhost:5000/api/swiggy/dapi/restaurants/list/v5?lat=19.2122949&lng=72.97716609999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING';
+export const API_URL = '/api/swiggy/dapi/restaurants/list/v5?lat=19.2122949&lng=72.97716609999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING';
 
-export const MENU_API = 'http://localhost:5000/api/swiggy/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=19.2122949&lng=72.97716609999999&restaurantId=';
+export const MENU_API = '/api/swiggy/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=19.2122949&lng=72.97716609999999&restaurantId=';
 
-export const PINCOD_API = 'https://api.postalpincode.in/pincode'
+export const PINCOD_API = 'https://api.postalpincode.in/pincode';
