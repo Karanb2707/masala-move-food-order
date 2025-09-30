@@ -1,5 +1,4 @@
 import { useState } from "react"
-import ReCAPTCHA from "react-google-recaptcha"
 
 export default function ContactForm() {
   const [form, setForm] = useState({ name: "", email: "", message: "" })
