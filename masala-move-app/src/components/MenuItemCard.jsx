@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addItem, removeItem } from '../redux/slices/cartSlice.js';
 import { UserContext } from '../context/UserContext';
 import toast from "react-hot-toast";
+import { useNavigate } from 'react-router-dom';
 
 const MenuItemCard = ({ itemData }) => {
     const info = itemData?.card?.info;
@@ -34,6 +35,8 @@ const MenuItemCard = ({ itemData }) => {
     const existingItem = cartItems.find(item => item.id === id);
     const itemCount = existingItem ? existingItem.quantity : 0;
 
+    const navigate = useNavigate();
+
     const dispatch = useDispatch();
     const { user } = useContext(UserContext);
 
@@ -51,6 +54,8 @@ const MenuItemCard = ({ itemData }) => {
         toast.error("Item removed from cart 🛒");
     };
 
+    const loginHandleClick = () => navigate('/login');
+    
     return (
         <>
             <div className="flex flex-col md:flex-row justify-between gap-4 m-4 p-4 rounded-lg bg-white border border-gray-200 shadow-sm hover:shadow-lg hover:scale-[1.01] transition-transform duration-300">
@@ -130,7 +135,7 @@ const MenuItemCard = ({ itemData }) => {
                             </button>
                             <button
                                 className="px-4 py-2 bg-orange-600 text-white rounded-md cursor-pointer"
-                                onClick={() => window.location.href = "/login"}
+                                onClick={loginHandleClick}
                             >
                                 Login
                             </button>
