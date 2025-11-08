@@ -28,7 +28,11 @@ const Body = () => {
 
     return (
         <div className='flex flex-col items-center justify-center mt-5 gap-4'>
-            <div className='flex flex-col md:flex-row justify-center items-center gap-4 bg-white shadow-lg border border-orange-200 p-6 mt-2 rounded-2xl max-w-4xl mx-auto'>
+            <p className='mt-2 text-sm'>
+                <span className='font-bold'>Note - </span>
+                No imgaes right now due to some issue
+            </p>
+            <div className='flex flex-col md:flex-row justify-center items-center gap-4 bg-white shadow-lg border border-orange-200 p-6 rounded-2xl max-w-4xl mx-auto'>
                 <SearchComp
                     restaurants={allRestaurants}
                     setRestaurants={setRestaurants}
