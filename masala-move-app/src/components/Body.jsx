@@ -28,28 +28,29 @@ const Body = () => {
 
     return (
         <div className='flex flex-col items-center justify-center mt-5 gap-4'>
-            <div className='flex flex-col md:flex-row justify-center items-evenly gap-4'>
+            <div className='flex flex-col md:flex-row justify-center items-center gap-4 bg-white shadow-lg border border-orange-200 p-6 mt-2 rounded-2xl max-w-4xl mx-auto'>
                 <SearchComp
                     restaurants={allRestaurants}
                     setRestaurants={setRestaurants}
                     setSearching={setSearching}
                     handleShowAll={handleShowAll}
                 />
-                <button
-                    className='py-1 px-2 ring ring-orange-500 bg-amber-300 font-semibold rounded-sm cursor-pointer'
-                    onClick={handleShowAll}
-                >
-                    All
-                </button>
-                <button
-                    className='py-1 px-2 ring ring-orange-500 bg-amber-300 font-semibold rounded-sm cursor-pointer'
-                    onClick={handleTopRatedRestro}
-                >
-                    Top Rated
-                </button>
+                <div className='flex flex-col md:flex-row gap-3 w-full'>
+                    <button
+                        className='flex-1 md:flex-none px-6 py-2.5 bg-gradient-to-r from-orange-500 to-amber-500 text-white font-semibold rounded-xl shadow-md hover:shadow-lg hover:from-orange-600 hover:to-amber-600 transition-all duration-200 active:scale-95'
+                        onClick={handleShowAll}
+                    >
+                        All
+                    </button>
+                    <button
+                        className='flex-1 md:flex-none px-6 py-2.5 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold rounded-xl shadow-md hover:shadow-lg hover:from-amber-600 hover:to-orange-600 transition-all duration-200 active:scale-95'
+                        onClick={handleTopRatedRestro}
+                    >
+                        Top Rated
+                    </button>
+                </div>
             </div>
-
-            <div className='w-[80%]'>
+            <div className='w-[75%] md:w-[90%]'>
                 <h1 className='text-center text-3xl font-bold'>All Restaurants</h1>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-5 mb-10'>
                     {restaurants.length === 0 && !searching ? (
