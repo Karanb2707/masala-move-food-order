@@ -1,7 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { IoMdStar, IoMdAdd } from "react-icons/io";
 import { HiMinusSm } from "react-icons/hi";
-import { CDN_URL } from '../utils/constants.js';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItem, removeItem } from '../redux/slices/cartSlice.js';
 import { UserContext } from '../context/UserContext';
@@ -9,15 +8,9 @@ import toast from "react-hot-toast";
 import { useNavigate } from 'react-router-dom';
 
 const MenuItemCard = ({ itemData }) => {
-    const info = itemData?.card?.info;
-    const { id, name, description, imageId, ratings, defaultPrice, price } = info;
-
-    const finalPrice = defaultPrice ?? price ?? 0;
-    const shownPrice = (finalPrice / 100).toFixed(2);
-
-    const rating = ratings?.aggregatedRating?.rating ?? null;
-    const imgUrl = CDN_URL + imageId;
-
+    const { id, name, desc, image, rating, price } = itemData;
+    const shownPrice = price.toFixed(2);
+    const imgUrl = image;
     const itemInfo = { id, name, imgUrl, shownPrice };
 
     const [showFullDesc, setShowFullDesc] = useState(false);
@@ -25,10 +18,10 @@ const MenuItemCard = ({ itemData }) => {
 
     const toggleDescription = () => setShowFullDesc(prev => !prev);
 
-    const shouldTruncate = description && description.length > 200;
+    const shouldTruncate = desc && desc.length > 200;
     const displayedDescription = showFullDesc || !shouldTruncate
-        ? description
-        : `${description.substring(0, 200)}...`;
+        ? desc
+        : `${desc.substring(0, 200)}...`;
 
     const cartItems = useSelector((state) => state.cart.items);
     const isInCart = cartItems.some(item => item.id === id);
@@ -36,11 +29,10 @@ const MenuItemCard = ({ itemData }) => {
     const itemCount = existingItem ? existingItem.quantity : 0;
 
     const navigate = useNavigate();
-
     const dispatch = useDispatch();
     const { user } = useContext(UserContext);
 
-    const handleAddItem = (itemInfo) => {
+    const handleAddItem = () => {
         if (!user) {
             setShowLoginPopup(true);
             return;
@@ -49,17 +41,16 @@ const MenuItemCard = ({ itemData }) => {
         toast.success("Item added in cart 🛒");
     };
 
-    const handleRemoveItem = (id) => {
+    const handleRemoveItem = () => {
         dispatch(removeItem(id));
         toast.error("Item removed from cart 🛒");
     };
 
     const loginHandleClick = () => navigate('/login');
-    
+
     return (
         <>
             <div className="flex flex-col md:flex-row justify-between gap-4 m-4 p-4 rounded-lg bg-white border border-gray-200 shadow-sm hover:shadow-lg hover:scale-[1.01] transition-transform duration-300">
-                {/* Left Section */}
                 <div className="flex flex-col gap-2 w-full md:w-[70%]">
                     <h2 className="text-lg md:text-xl font-semibold">{name}</h2>
                     <p className="text-base font-semibold text-gray-800">
@@ -69,7 +60,7 @@ const MenuItemCard = ({ itemData }) => {
                         <IoMdStar className="text-orange-600" />
                         <p>{rating ? rating : "No Rating"}</p>
                     </div>
-                    {description && (
+                    {desc && (
                         <p className="text-sm text-gray-600">
                             {displayedDescription}
                             {shouldTruncate && (
@@ -84,9 +75,8 @@ const MenuItemCard = ({ itemData }) => {
                     )}
                 </div>
 
-                {/* Right Section */}
                 <div className="flex flex-col items-center gap-2 w-full md:w-[30%]">
-                    {imageId && (
+                    {image && (
                         <img
                             src={imgUrl}
                             alt="food"
@@ -95,32 +85,32 @@ const MenuItemCard = ({ itemData }) => {
                     )}
                     {
                         isInCart
-                            ?
-                            <div className='w-[160px] h-10 flex items-center justify-between gap-2 ring-1 ring-gray-300 rounded-lg'>
-                                <IoMdAdd
-                                    className='text-2xl cursor-pointer text-green-600 ml-2'
-                                    onClick={() => handleAddItem(itemInfo)}
-                                />
-                                <p className='text-xl text-orange-600 font-semibold'>
-                                    {itemCount}
-                                </p>
-                                <HiMinusSm
-                                    className='text-2xl cursor-pointer text-red-600 mr-2'
-                                    onClick={() => handleRemoveItem(id)}
-                                />
-                            </div>
-                            :
-                            <button
-                                className="w-[160px] h-10 font-semibold text-green-600 rounded-lg ring-1 ring-gray-300 active:scale-95 transition"
-                                onClick={() => handleAddItem(itemInfo)}
-                            >
-                                Add
-                            </button>
+                            ? (
+                                <div className='w-[160px] h-10 flex items-center justify-between gap-2 ring-1 ring-gray-300 rounded-lg'>
+                                    <IoMdAdd
+                                        className='text-2xl cursor-pointer text-green-600 ml-2'
+                                        onClick={handleAddItem}
+                                    />
+                                    <p className='text-xl text-orange-600 font-semibold'>
+                                        {itemCount}
+                                    </p>
+                                    <HiMinusSm
+                                        className='text-2xl cursor-pointer text-red-600 mr-2'
+                                        onClick={handleRemoveItem}
+                                    />
+                                </div>
+                            ) : (
+                                <button
+                                    className="w-[160px] h-10 font-semibold text-green-600 rounded-lg ring-1 ring-gray-300 active:scale-95 transition"
+                                    onClick={handleAddItem}
+                                >
+                                    Add
+                                </button>
+                            )
                     }
                 </div>
             </div>
 
-            {/* Login Popup */}
             {showLoginPopup && (
                 <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
                     <div className="bg-white p-6 rounded-lg shadow-lg text-center w-[300px]">

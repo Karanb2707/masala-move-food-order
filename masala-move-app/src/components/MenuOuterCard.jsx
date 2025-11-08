@@ -1,18 +1,14 @@
-// import React, { useState } from 'react'
+import React from 'react';
 import MenuItemCard from './MenuItemCard';
-import { FaArrowUp } from "react-icons/fa";
-import { FaArrowDown } from "react-icons/fa";
+import { FaArrowUp, FaArrowDown } from "react-icons/fa";
 
 const MenuOuterCard = ({ menu, showItems, setShowIndex }) => {
-
-    // const [isOpen, setIsOpen] = useState(false);
-
-    const title = menu?.card?.card?.title;
-    const items = menu?.card?.card?.itemCards;
+    const title = menu?.title;
+    const items = menu?.items || [];
 
     const toggleAccordion = () => {
         setShowIndex();
-    }
+    };
 
     return (
         <div className="border border-slate-300 bg-white p-3 m-2 rounded-lg w-full mb-4 shadow-sm hover:shadow-md transition">
@@ -28,19 +24,16 @@ const MenuOuterCard = ({ menu, showItems, setShowIndex }) => {
                 </button>
             </div>
             {
-                showItems
-                &&
-                (
+                showItems && (
                     Array.isArray(items)
                         ? items.map(item => (
-                            <MenuItemCard itemData={item} key={item?.card?.info?.id} />
+                            <MenuItemCard itemData={item} key={item.id} />
                         ))
                         : <p className="text-gray-500 px-4">No items found</p>
                 )
             }
         </div>
+    );
+};
 
-    )
-}
-
-export default MenuOuterCard
+export default MenuOuterCard;

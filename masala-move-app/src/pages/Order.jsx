@@ -44,7 +44,7 @@ const Order = () => {
                   </div>
                   <div>
                     <h2 className="text-xl font-semibold text-gray-900">
-                      Delivery Address
+                      Latest Delivery Address
                     </h2>
                     <p className="text-sm text-gray-600">
                       Your orders will be delivered here
