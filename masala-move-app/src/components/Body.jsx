@@ -32,7 +32,7 @@ const Body = () => {
                 <span className='font-bold'>Note - </span>
                 No imgaes right now due to some issue
             </p>
-            <div className='flex flex-col md:flex-row justify-center items-center gap-4 bg-white shadow-lg border border-orange-200 p-6 rounded-2xl mx-auto'>
+            <div className='flex flex-col md:flex-row w-[80%] md:w-fit justify-center items-center gap-4 bg-white shadow-lg border border-orange-200 p-6 rounded-2xl mx-auto'>
                 <SearchComp
                     restaurants={allRestaurants}
                     setRestaurants={setRestaurants}
@@ -54,7 +54,7 @@ const Body = () => {
                     </button>
                 </div>
             </div>
-            <div className='w-[75%] md:w-[90%]'>
+            <div className='w-[80%] md:w-[90%]'>
                 <h1 className='text-center text-3xl font-bold'>All Restaurants</h1>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-5 mb-10'>
                     {restaurants.length === 0 && !searching ? (
