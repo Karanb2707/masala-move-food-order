@@ -64,7 +64,7 @@ const Cart = () => {
         
         {/* Header */}
         <div className='text-center mb-8'>
-          <div className='flex items-center justify-center gap-3 mb-2'>
+          <div className='flex items-center justify-center gap-3 mb-2 mt-2'>
             <ShoppingBag className='w-8 h-8 text-orange-500' />
             <h1 className='text-3xl font-bold text-gray-900'>Your Cart</h1>
           </div>
