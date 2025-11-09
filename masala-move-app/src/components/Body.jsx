@@ -32,7 +32,7 @@ const Body = () => {
                 <span className='font-bold'>Note - </span>
                 No imgaes right now due to some issue
             </p>
-            <div className='flex flex-col md:flex-row justify-center items-center gap-4 bg-white shadow-lg border border-orange-200 p-6 rounded-2xl max-w-4xl mx-auto'>
+            <div className='flex flex-col md:flex-row justify-center items-center gap-4 bg-white shadow-lg border border-orange-200 p-6 rounded-2xl mx-auto'>
                 <SearchComp
                     restaurants={allRestaurants}
                     setRestaurants={setRestaurants}
