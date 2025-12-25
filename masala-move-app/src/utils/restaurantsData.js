@@ -1,3 +1,5 @@
+import res1 from '../assets/images/restaurants/res1.webp';
+
 const restaurantsData = [
   {
     id: 1,
@@ -7,7 +9,7 @@ const restaurantsData = [
     cuisines: ["Indian", "Chinese", "Tandoor"],
     sla: { slaString: "30 mins" },
     veg: true,
-    image: "https://source.unsplash.com/800x600/?indian-food,curry,restaurant,bombay",
+    image: res1,
     menu: [
       {
         title: "Starters",
