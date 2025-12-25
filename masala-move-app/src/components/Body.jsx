@@ -28,11 +28,11 @@ const Body = () => {
 
     return (
         <div className='flex flex-col items-center justify-center mt-5 gap-4'>
-            <p className='mt-2 text-sm'>
+            {/* <p className='mt-2 text-sm'>
                 <span className='font-bold'>Note - </span>
                 No imgaes right now due to some issue
-            </p>
-            <div className='flex flex-col md:flex-row w-[80%] md:w-fit justify-center items-center gap-4 bg-white shadow-lg border border-orange-200 p-6 rounded-2xl mx-auto'>
+            </p> */}
+            <div className='flex flex-col md:flex-row w-[80%] mt-2 md:w-fit justify-center items-center gap-4 bg-white shadow-lg border border-orange-200 p-6 rounded-2xl mx-auto'>
                 <SearchComp
                     restaurants={allRestaurants}
                     setRestaurants={setRestaurants}

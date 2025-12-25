@@ -1,4 +1,11 @@
 import res1 from '../assets/images/restaurants/res1.webp';
+import res2 from '../assets/images/restaurants/res2.webp';
+import res3 from '../assets/images/restaurants/res3.webp';
+import res4 from '../assets/images/restaurants/res4.webp';
+import res5 from '../assets/images/restaurants/res5.webp';
+import res6 from '../assets/images/restaurants/res6.webp';
+import res7 from '../assets/images/restaurants/res7.webp';
+import res8 from '../assets/images/restaurants/res8.webp';
 
 const restaurantsData = [
   {
@@ -65,7 +72,7 @@ const restaurantsData = [
     cuisines: ["Italian", "Pizza"],
     sla: { slaString: "25 mins" },
     veg: false,
-    image: "https://source.unsplash.com/800x600/?pizzeria,pizza,italian-restaurant",
+    image: res2,
     menu: [
       {
         title: "Pizzas",
@@ -121,7 +128,7 @@ const restaurantsData = [
     cuisines: ["Japanese", "Sushi"],
     sla: { slaString: "35 mins" },
     veg: false,
-    image: "https://source.unsplash.com/800x600/?sushi,japanese-restaurant",
+    image: res3,
     menu: [
       {
         title: "Sushi Rolls",
@@ -177,7 +184,7 @@ const restaurantsData = [
     cuisines: ["Mexican", "Tacos"],
     sla: { slaString: "28 mins" },
     veg: false,
-    image: "https://source.unsplash.com/800x600/?tacos,mexican-restaurant",
+    image: res4,
     menu: [
       {
         title: "Tacos",
@@ -233,7 +240,7 @@ const restaurantsData = [
     cuisines: ["Healthy", "Salads", "Vegan"],
     sla: { slaString: "22 mins" },
     veg: true,
-    image: "https://source.unsplash.com/800x600/?salad,healthy-restaurant",
+    image: res5,
     menu: [
       {
         title: "Salads",
@@ -289,7 +296,7 @@ const restaurantsData = [
     cuisines: ["Indian", "Middle Eastern"],
     sla: { slaString: "32 mins" },
     veg: false,
-    image: "https://source.unsplash.com/800x600/?kebab,curry,restaurant",
+    image: res6,
     menu: [
       {
         title: "Kebabs",
@@ -345,7 +352,7 @@ const restaurantsData = [
     cuisines: ["Fast Food", "Burgers"],
     sla: { slaString: "20 mins" },
     veg: false,
-    image: "https://source.unsplash.com/800x600/?burger,fast-food,restaurant",
+    image: res7,
     menu: [
       {
         title: "Burgers",
@@ -401,7 +408,7 @@ const restaurantsData = [
     cuisines: ["Mediterranean", "Grill"],
     sla: { slaString: "30 mins" },
     veg: false,
-    image: "https://source.unsplash.com/800x600/?mediterranean,grill,restaurant",
+    image: res8,
     menu: [
       {
         title: "Grilled Mains",
