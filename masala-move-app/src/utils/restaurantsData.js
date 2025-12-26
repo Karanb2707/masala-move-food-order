@@ -6,6 +6,18 @@ import res5 from '../assets/images/restaurants/res5.webp';
 import res6 from '../assets/images/restaurants/res6.webp';
 import res7 from '../assets/images/restaurants/res7.webp';
 import res8 from '../assets/images/restaurants/res8.webp';
+import res9 from '../assets/images/restaurants/res9.webp';
+import res10 from '../assets/images/restaurants/res10.webp';
+import res11 from '../assets/images/restaurants/res11.webp';
+import res12 from '../assets/images/restaurants/res12.webp';
+import res13 from '../assets/images/restaurants/res13.webp';
+import res14 from '../assets/images/restaurants/res14.webp';
+import res15 from '../assets/images/restaurants/res15.webp';
+import res16 from '../assets/images/restaurants/res16.webp';
+import res17 from '../assets/images/restaurants/res17.webp';
+import res18 from '../assets/images/restaurants/res18.webp';
+import res19 from '../assets/images/restaurants/res19.webp';
+import res20 from '../assets/images/restaurants/res20.webp';
 
 const restaurantsData = [
   {
@@ -464,7 +476,7 @@ const restaurantsData = [
     cuisines: ["South Indian", "Dosa"],
     sla: { slaString: "18 mins" },
     veg: true,
-    image: "https://source.unsplash.com/800x600/?dosa,south-indian-restaurant",
+    image: res9,
     menu: [
       {
         title: "Dosas",
@@ -520,7 +532,7 @@ const restaurantsData = [
     cuisines: ["Pan-Asian", "Noodles"],
     sla: { slaString: "24 mins" },
     veg: false,
-    image: "https://source.unsplash.com/800x600/?noodles,asian-restaurant",
+    image: res10,
     menu: [
       {
         title: "Ramen & Soups",
@@ -576,7 +588,7 @@ const restaurantsData = [
     cuisines: ["Indian", "Biryani", "Grill"],
     sla: { slaString: "29 mins" },
     veg: false,
-    image: "https://source.unsplash.com/800x600/?biryani,grill,restaurant",
+    image: res11,
     menu: [
       {
         title: "Biryani",
@@ -632,7 +644,7 @@ const restaurantsData = [
     cuisines: ["Middle Eastern", "Fast Food"],
     sla: { slaString: "26 mins" },
     veg: false,
-    image: "https://source.unsplash.com/800x600/?shawarma,kebab,street-food",
+    image: res12,
     menu: [
       {
         title: "Shawarmas",
@@ -688,7 +700,7 @@ const restaurantsData = [
     cuisines: ["Cafe", "Crepes"],
     sla: { slaString: "20 mins" },
     veg: false,
-    image: "https://source.unsplash.com/800x600/?crepe,cafe,restaurant",
+    image: res13,
     menu: [
       {
         title: "Savory Crepes",
@@ -744,7 +756,7 @@ const restaurantsData = [
     cuisines: ["BBQ", "American"],
     sla: { slaString: "34 mins" },
     veg: false,
-    image: "https://source.unsplash.com/800x600/?bbq,barbecue,restaurant",
+    image: res14,
     menu: [
       {
         title: "BBQ Platters",
@@ -800,7 +812,7 @@ const restaurantsData = [
     cuisines: ["Asian", "Pan-Asian"],
     sla: { slaString: "27 mins" },
     veg: false,
-    image: "https://source.unsplash.com/800x600/?pan-asian,restaurant",
+    image: res15,
     menu: [
       {
         title: "Korean",
@@ -856,7 +868,7 @@ const restaurantsData = [
     cuisines: ["Middle Eastern", "Vegan"],
     sla: { slaString: "21 mins" },
     veg: true,
-    image: "https://source.unsplash.com/800x600/?falafel,vegan-restaurant",
+    image: res16,
     menu: [
       {
         title: "Falafel Creations",
@@ -912,7 +924,7 @@ const restaurantsData = [
     cuisines: ["Nepalese", "Tibetan", "Momos"],
     sla: { slaString: "19 mins" },
     veg: false,
-    image: "https://source.unsplash.com/800x600/?momos,street-food",
+    image: res17,
     menu: [
       {
         title: "Momos",
@@ -968,7 +980,7 @@ const restaurantsData = [
     cuisines: ["Indian", "Wraps", "Fast Food"],
     sla: { slaString: "20 mins" },
     veg: false,
-    image: "https://source.unsplash.com/800x600/?wraps,street-food,india",
+    image: res18,
     menu: [
       {
         title: "Kathi Rolls",
@@ -1024,7 +1036,7 @@ const restaurantsData = [
     cuisines: ["Indian", "Tandoor"],
     sla: { slaString: "31 mins" },
     veg: false,
-    image: "https://source.unsplash.com/800x600/?tandoori,restaurant",
+    image: res19,
     menu: [
       {
         title: "Tandoor Specials",
@@ -1080,7 +1092,7 @@ const restaurantsData = [
     cuisines: ["Seafood", "Fine Dining"],
     sla: { slaString: "36 mins" },
     veg: false,
-    image: "https://source.unsplash.com/800x600/?seafood,restaurant,ocean",
+    image: res20,
     menu: [
       {
         title: "Starters",
