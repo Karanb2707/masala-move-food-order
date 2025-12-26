@@ -33,7 +33,7 @@ const Menu = () => {
                                     <img
                                         src={resInfo.image}
                                         alt="restaurant"
-                                        className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                                        className="h-[360px] w-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent"></div>
                                     <div className="absolute top-4 right-4 flex items-center gap-1.5 bg-green-500 text-white px-3 py-1.5 rounded-full font-bold shadow-lg backdrop-blur-sm">
